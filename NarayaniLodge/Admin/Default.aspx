@@ -15,7 +15,7 @@
                             <div class="flex items-center justify-between gap-3 flex-wrap">
                                 <h3 class="font-light flex items-center mb-0">
                                     <i class="feather icon-calendar text-success-500 text-[30px] mr-1.5"></i>
-                                    <asp:Label ID="bookings" runat="server" Text="0"></asp:Label>
+                                    <asp:Label ID="lblbookings" runat="server" Text="0"></asp:Label>
                                 </h3>
                                 <p class="mb-0">
                                     <asp:Label ID="progressPercent" runat="server" Text="0%"></asp:Label>
@@ -102,11 +102,6 @@
                     </div>
                 </div>
             </div>
-
-            
-
-
-
 
 
             <div class="col-span-12 xl:col-span-8 md:col-span-6">
