@@ -1,8 +1,9 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NarayaniLodge.Admin.Default" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-     <!-- [ Main Content ] start -->
+    <!-- [ Main Content ] start -->
     <div class="pc-container">
         <div class="pc-content">
             <div class="grid grid-cols-12 gap-x-6">
@@ -102,6 +103,112 @@
                     </div>
                 </div>
             </div>
+
+
+<%--            <center>
+
+
+                <asp:GridView ID="grdEmp" runat="server" Width="90%" DataKeyNames="BookingId" CssClass="rowHover footable" RowStyle-CssClass="rowHover"
+                    AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="grdEmp_PageIndexChanging"
+                    PageSize="7" OnRowCancelingEdit="grdEmp_RowCancelingEdit"
+                    OnRowDeleting="grdEmp_RowDeleting" OnRowEditing="grdEmp_RowEditing"
+                    OnRowUpdating="grdEmp_RowUpdating"
+                    CellPadding="0" ForeColor="#333333" GridLines="None" Style="align-items: Center" HorizontalAlign="Center" OnRowDataBound="grdEmp_RowDataBound">
+                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
+                    <Columns>
+                        <asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp; Sr No." ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
+                            </ItemTemplate>
+
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Booking Id" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblid" runat="server" Text='<%# Eval("BookingId")%>'></asp:Label>
+                               *** <%--<asp:Label ID="lbldeptid" runat="server" Text='<%# Eval("Word_Code")%>' Visible="false"></asp:Label>***
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Name" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblnme" runat="server" Text='<%#Eval("GuestName")%>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
+
+                        <asp:TemplateField HeaderText="Room Type" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblroom" runat="server" Text='<%#Eval("RoomType")%>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
+
+                        <asp:TemplateField HeaderText="Check-In Date" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblchkindt" runat="server" Text='<%#Eval("CheckInDate")%>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
+                        <asp:TemplateField HeaderText="Check-Out Date" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
+                            <ItemTemplate>
+                                <asp:Label ID="lblchkotdt" runat="server" Text='<%#Eval("CheckOutDate")%>'></asp:Label>
+                            </ItemTemplate>
+                            <HeaderStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+
+
+
+
+***<%--                        <asp:TemplateField HeaderText="दुरुस्ती">
+                            <ItemTemplate>
+                                <%-- <asp:LinkButton ID="lnkBtnEdit" runat="server"  Text="Action" CssClass="btn btn-info" OnClick="Display"></asp:LinkButton>
+                                <asp:ImageButton ID="lnkBtnEdit" runat="server" CommandName="Edit" ImageUrl='<%# "~/assets/img/Edit.png" %>' ToolTip="Edit" CausesValidation="false" OnClick="Display" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField HeaderText="Edit" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80px">
+                                                        <ItemTemplate>
+                                                            <asp:ImageButton ID="imgEdit" runat="server" CommandName="Edit" ImageUrl='<%# "~/Images/Edit.png" %>' ToolTip="Edit" CausesValidation="false" />
+                                                        </ItemTemplate>
+                                                        <EditItemTemplate>
+                                                            <asp:LinkButton ID="lkUpdate" runat="server" Text="Update" CommandName="Update" ToolTip="Update" CausesValidation="false"></asp:LinkButton>
+                                                            <asp:LinkButton ID="lkCancel" runat="server" Text="Cancel" CommandName="Cancel" ToolTip="Cancel" CausesValidation="false"></asp:LinkButton>
+                                                        </EditItemTemplate>
+                                                        <HeaderStyle HorizontalAlign="Center" />
+                                                        <ItemStyle HorizontalAlign="Center" />
+                                                    </asp:TemplateField>***
+                        <asp:TemplateField HeaderText="Cancel" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80px">
+                            <ItemTemplate>
+                                <asp:ImageButton ID="imgDelete" runat="server" CommandName="Delete" ImageUrl="~/assets/img/Delete.png" OnClientClick="return confirm('Cancel Booking')" ToolTip="Delete" CausesValidation="false" />
+                            </ItemTemplate>
+
+                            <HeaderStyle HorizontalAlign="Center" />
+                            <ItemStyle HorizontalAlign="Center" />
+                        </asp:TemplateField>
+                    </Columns>
+                    <EditRowStyle BackColor="#999999" />
+                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
+                    <HeaderStyle BackColor="#012970" Font-Bold="True" ForeColor="White" />
+                    <PagerStyle CssClass="PageIndex" BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+                    <RowStyle CssClass="rowHover" BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
+                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
+                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
+                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
+                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
+                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
+                </asp:GridView>
+
+                <div id="styleSelector"></div>
+            </center>
+--%>
+
+
+
+
 
 
             <div class="col-span-12 xl:col-span-8 md:col-span-6">
@@ -218,7 +325,7 @@
         </div>
 
     </div>
-<!-- [ Main Content ] end -->
+    <!-- [ Main Content ] end -->
 
 
 </asp:Content>

@@ -6,13 +6,13 @@
 <head runat="server">
     <title>Admin</title>
 
-     <!-- [Meta] -->
+    <!-- [Meta] -->
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimal-ui" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- [Favicon] icon -->
-    <link rel="icon" href="assets/images/narayanilodgelogo.png" type="image/x-icon" />
+    <link rel="icon" href="assets/images/narayanilodgelogo" type="image/x-icon" />
 
     <!-- [Font] Family -->
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet" />
@@ -35,7 +35,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            
+
             <!-- [ Pre-loader ] start -->
             <div class="loader-bg fixed inset-0 bg-white dark:bg-themedark-cardbg z-[1034]">
                 <div class="loader-track h-[5px] w-full inline-block absolute overflow-hidden top-0">
@@ -49,9 +49,14 @@
                     <div class="m-header flex items-center py-4 px-6 h-header-height">
                         <a href="../dashboard/index.html" class="b-brand flex items-center gap-3">
                             <!-- ========   Change your logo from here   ============ -->
-                            <img src="assets/images/narayanilodge.png" class="img-fluid logo logo-lg" alt="logo" />
+                            <div class="logo">
+                                <span class="main">NARAYANI</span>
+                                <span class="sub">Luxury Lodge</span>
+                            </div>
+
+                            <%--<img src="#" class="img-fluid logo logo-lg" alt="logo" />
                             <img src="assets/images/narayanilodge.png" class="img-fluid logo logo-sm" />
-                        </a>
+                            --%></a>
                     </div>
                     <div class="navbar-content h-[calc(100vh_-_74px)] py-2.5">
                         <ul class="pc-navbar">
@@ -60,7 +65,7 @@
                             </li>
                             <li class="pc-item">
                             <li class="pc-item">
-                                <a href="../dashboard/index.html" class="pc-link">
+                                <a href="Default.aspx" class="pc-link">
                                     <span class="pc-micon">
                                         <i data-feather="home"></i>
                                     </span>
@@ -103,7 +108,7 @@
                                 </ul>
                             </li>
                             <!--Enquiries-->
-                            
+
                             <li class="pc-item pc-hasmenu">
                                 <a href="#!" class="pc-link"><span class="pc-micon"><i data-feather="message-circle"></i></span><span
                                     class="pc-mtext">Enquiries</span><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
@@ -128,10 +133,10 @@
                                 <ul class="pc-submenu">
                                     <li class="pc-item"><a class="pc-link" href="#!">Admin Profile</a></li>
                                     <li class="pc-item"><a class="pc-link" href="#!">Change Passwaord</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Log Out</a></li>
+                                    <li class="pc-item"><a class="pc-link" href="Login.aspx">Log Out</a></li>
                                 </ul>
                             </li>
-                           </ul> 
+                        </ul>
 
                     </div>
                 </div>
@@ -154,7 +159,7 @@
                                     <i data-feather="menu"></i>
                                 </a>
                             </li>
-<%--                            <li class="dropdown pc-h-item">
+                            <%--                            <li class="dropdown pc-h-item">
                                 <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
                                     aria-haspopup="false" aria-expanded="false">
                                     <i data-feather="search"></i>
@@ -184,10 +189,10 @@
                                         <i data-feather="sun"></i>
                                         <span>Light</span>
                                     </a>
-                                    <a href="#!" class="dropdown-item" onclick="layout_change_default()">
+                                    <%--<a href="#!" class="dropdown-item" onclick="layout_change_default()">
                                         <i data-feather="settings"></i>
                                         <span>Default</span>
-                                    </a>
+                                    </a>--%>
                                 </div>
                             </li>
                             <li class="dropdown pc-h-item">
@@ -209,7 +214,7 @@
                                         <i class="ti ti-lock"></i>
                                         <span>Lock Screen</span>
                                     </a>
-                                    <a href="#!" class="dropdown-item">
+                                    <a href="Login.aspx" class="dropdown-item">
                                         <i class="ti ti-power"></i>
                                         <span>Logout</span>
                                     </a>
@@ -372,7 +377,7 @@
                                                     <svg class="pc-icon me-2 w-[22px] h-[22px]">
                                                         <use xlink:href="#custom-logout-1-outline"></use>
                                                     </svg>
-                                                    Logout
+                                                  <a href="Login.aspx">Logout</a>
                                                 </button>
                                             </div>
                                         </div>
@@ -398,7 +403,7 @@
                                 Designed & Developed by Diksha | © 2025–26
                             </p>
                         </div>
-                       </div>
+                    </div>
                 </div>
             </footer>
 

@@ -13,10 +13,12 @@ namespace NarayaniLodge.Admin
     {
         //Connection String
         string cs = ConfigurationManager.ConnectionStrings["Lodge"].ConnectionString;
+        
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+
                 LoadTodaysBooking();
                 LoadRoomOccupy();
                 LoadRooms();
@@ -24,6 +26,10 @@ namespace NarayaniLodge.Admin
                 Loadenq();
                 revenue();
                 Loadrevenue();
+            }
+            if (Session["Admin"] == null)
+            {
+                Response.Redirect("Login.aspx");
             }
         }
 
@@ -156,5 +162,8 @@ namespace NarayaniLodge.Admin
             lblrev.Text = percentage + "%";
             revenueBar.Style["width"] = percentage + "%";
         }
+
+        //Booking Table
+        
     }
 }
