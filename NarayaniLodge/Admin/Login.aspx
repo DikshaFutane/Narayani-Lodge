@@ -60,10 +60,10 @@
                                         <input type="password" class="form-control" id="pass" runat="server" placeholder="Password" />
                                     </div>
                                     <div class="flex mt-1 justify-between items-center flex-wrap">
-                                        <div class="form-check">
+                                        <%--<div class="form-check">
                                             <input class="form-check-input input-primary" type="checkbox" id="customCheckc1" checked="" />
                                             <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
-                                        </div>
+                                        </div>--%>
                                         <h6 class="font-normal text-primary-500 mb-0">
                                             <a href="#">Forgot Password? </a>
                                         </h6>
@@ -77,11 +77,11 @@
                                             OnClick="btnLogin_Click1" />
 
                                     </div>
-                                    <div class="flex justify-between items-end flex-wrap mt-4">
+                                    <%--<div class="flex justify-between items-end flex-wrap mt-4">
                                         <h6 class="font-medium mb-0">Don't have an Account?</h6>
                                         <a href="register-v1.html" class="text-primary-500">Create Account</a>
 
-                                    </div>
+                                    </div>--%>
                                     <asp:ScriptManager ID="ScriptManager" runat="server" />
 
                                     <%--<asp:Label runat="server" ID="lblmsg" text=""></asp:Label>--%>
