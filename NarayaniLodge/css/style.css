@@ -32,6 +32,32 @@
 /* Template default CSS
 /*----------------------------------------*/
 
+/* Logo text styling */
+.logo {
+	line-height: 1; /* VERY IMPORTANT */
+}
+
+	.logo .main {
+		font-family: 'Lora', serif;
+		font-size: 32px;
+		font-weight: 500;
+		color: #dfa974; /* exact theme color */
+		letter-spacing: 1px;
+		display: block;
+		margin-bottom: 2px; /* control spacing */
+	}
+
+	.logo .sub {
+		font-family: 'Cabin', sans-serif;
+		font-size: 15px;
+		color: #888888;
+		letter-spacing: 0.5px;
+		display: block;
+		margin-top: 0; /* remove gap */
+		line-height: 1.2;
+	}
+
+
 html, body {
 	height: 100%;
 	font-family: "Cabin", sans-serif;

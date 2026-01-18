@@ -11,7 +11,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title><%: Page.Title %> - Narayani Lodge</title>
-    <link href="~/favicon.ico" rel="shortcut icon" type="image/x-icon" />
+    <link href="img/narayanilodgelogo.png" rel="shortcut icon" type="image/x-icon" />
 
     <!-- Google Font -->
     <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
@@ -28,53 +28,193 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
-
 </head>
 <body>
     <form runat="server">
-        <asp:ScriptManager runat="server">
-            <Scripts>
-                <%--To learn more about bundling scripts in ScriptManager see https://go.microsoft.com/fwlink/?LinkID=301884 --%>
-                <%--Framework Scripts--%>
-                <asp:ScriptReference Name="MsAjaxBundle" />
-                <asp:ScriptReference Name="jquery" />
-                <asp:ScriptReference Name="WebForms.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebForms.js" />
-                <asp:ScriptReference Name="WebUIValidation.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebUIValidation.js" />
-                <asp:ScriptReference Name="MenuStandards.js" Assembly="System.Web" Path="~/Scripts/WebForms/MenuStandards.js" />
-                <asp:ScriptReference Name="GridView.js" Assembly="System.Web" Path="~/Scripts/WebForms/GridView.js" />
-                <asp:ScriptReference Name="DetailsView.js" Assembly="System.Web" Path="~/Scripts/WebForms/DetailsView.js" />
-                <asp:ScriptReference Name="TreeView.js" Assembly="System.Web" Path="~/Scripts/WebForms/TreeView.js" />
-                <asp:ScriptReference Name="WebParts.js" Assembly="System.Web" Path="~/Scripts/WebForms/WebParts.js" />
-                <asp:ScriptReference Name="Focus.js" Assembly="System.Web" Path="~/Scripts/WebForms/Focus.js" />
-                <asp:ScriptReference Name="WebFormsBundle" />
-                <%--Site Scripts--%>
-            </Scripts>
-        </asp:ScriptManager>
+        <asp:ScriptManager ID="ScriptManager1" runat="server" />
 
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark">
-            <div class="container">
-                <a class="navbar-brand" runat="server" href="~/">Application name</a>
-                <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" title="Toggle navigation" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="Toggle navigation">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-                <div class="collapse navbar-collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/">Home</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/About">About</a></li>
-                        <li class="nav-item"><a class="nav-link" runat="server" href="~/Contact">Contact</a></li>
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+
+        <!-- Offcanvas Menu Section Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <div class="canvas-open">
+            <i class="icon_menu"></i>
+        </div>
+        <div class="offcanvas-menu-wrapper">
+            <div class="canvas-close">
+                <i class="icon_close"></i>
+            </div>
+            
+            <div class="header-configure-area">
+                <a href="#" class="bk-btn">Booking Now</a>
+            </div>
+            <nav class="mainmenu mobile-menu">
+                <ul>
+                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="#">Rooms</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <%--<li><a href="#">Places</a>
+                    <ul class="dropdown">
+                        <li><a href="./room-details.html">Room Details</a></li>
+                        <li><a href="#">Deluxe Room</a></li>
+                        <li><a href="#">Family Room</a></li>
+                        <li><a href="#">Premium Room</a></li>
                     </ul>
+                </li>--%>
+                    <li><a href="#">Places Nearby</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </nav>
+            <div id="mobile-menu-wrap"></div>
+            <div class="top-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+            <ul class="top-widget">
+                <li><i class="fa fa-phone"></i>(+91) 7218423323</li>
+                <li><i class="fa fa-envelope"></i>naratawadekark@gmail.com</li>
+            </ul>
+        </div>
+        <!-- Offcanvas Menu Section End -->
+
+        <!-- Header Section Begin -->
+        <header class="header-section">
+            <div class="top-nav">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="tn-left">
+                                <li><i class="fa fa-phone"></i>(+91) 7218423323</li>
+                                <li><i class="fa fa-envelope"></i>naratawadekark@gmail.com</li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <div class="tn-right">
+                                <div class="top-social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                                <a href="#" class="bk-btn">Booking Now</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </nav>
+            <div class="menu-item">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="Default.aspx">
+                                        <span class="main">NARAYANI</span>
+                                        <span class="sub">Luxury Lodge</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="nav-menu">
+                                <nav class="mainmenu">
+                                    <ul>
+                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="#">Rooms</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Places Nearby</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
         <div class="container body-content">
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            <footer>
-                <p>&copy; <%: DateTime.Now.Year %> - My ASP.NET Application</p>
+            </div>
+            <!-- Footer Section Begin -->
+            <footer class="footer-section">
+                <div class="container  mt-0">
+                    <div class="footer-text">
+                        <div class="row">
+                            <div class="col-lg-4">
+                                <div class="ft-about">
+                                    <div class="logo">
+                                        <a href="#">
+                                            <div class="logo ft-contact">
+                                                <span class="main">NARAYANI</span>
+                                                <span class="sub">Luxury Lodge</span>
+                                            </div>
+                                        </a>
+                                    </div>
+                                    <p class="mt-1">A cozy stay in the heart of Kolhapur.</p>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 offset-lg-1">
+                                <div class="ft-contact">
+                                    <h6>Contact Us</h6>
+                                    <ul>
+                                        <li>(+91) 7218423323</li>
+                                        <li>naratawadekark@gmail.com</li>
+                                        <li>Tarabai Road, Tatakadil Talim Chowk, Kolhapur</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-lg-3 offset-lg-1">
+                                <div class="ft-contact">
+                                    <h6>Pages</h6>
+                                    <div class="nav-menu">
+                                    <nav class="mainmenu">
+                                    <ul>
+                                        <li><a href="#">Home</a></li>
+                                        <li><a href="#">Rooms</a></li>
+                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="#">Places Nearby</a></li>
+                                        <li><a href="#">Contact</a></li>
+                                    </ul>
+                                   </nav>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="copyright-option">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-lg-5 mt-0">
+                                <div class="co-text">
+                                    <p>
+                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                        Narayani Luxury Lodge. All rights reserved.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </footer>
-        </div>
+            <!-- Footer Section End -->
+
+  
+            <!-- Js Plugins -->
+            <script src="js/jquery-3.3.1.min.js"></script>
+            <script src="js/bootstrap.min.js"></script>
+            <script src="js/jquery.magnific-popup.min.js"></script>
+            <script src="js/jquery.nice-select.min.js"></script>
+            <script src="js/jquery-ui.min.js"></script>
+            <script src="js/jquery.slicknav.js"></script>
+            <script src="js/owl.carousel.min.js"></script>
+            <script src="js/main.js"></script>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
