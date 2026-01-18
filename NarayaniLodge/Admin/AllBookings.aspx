@@ -1,23 +1,5 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="AllBookings.aspx.cs" Inherits="NarayaniLodge.Admin.AllBookings" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
-        .page-header {
-    margin-bottom: 20px;
-}
-
-.page-header h2 {
-    font-weight: 600;
-}
-
-.table {
-    background-color: #fff;
-}
-
-.btn {
-    margin-right: 5px;
-}
-
-    </style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">  
   <!-- [ Main Content ] start -->

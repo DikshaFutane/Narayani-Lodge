@@ -29,6 +29,9 @@
     <!-- [Template CSS Files] -->
     <link rel="stylesheet" href="assets/css/style.css" id="mainstylelink" />
 
+    <!--Sweet Alert Link -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -85,7 +88,7 @@
                                     class="pc-mtext">Booking Management</span><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
                                 <ul class="pc-submenu">
                                     <li class="pc-item"><a class="pc-link" href="AllBookings.aspx">All Bookings</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">New Bookings</a></li>
+                                    <li class="pc-item"><a class="pc-link" href="New_Bookings.aspx">New Bookings</a></li>
                                     <li class="pc-item"><a class="pc-link" href="#!">Cancelled Bookings</a></li>
                                 </ul>
                             </li>
@@ -100,11 +103,10 @@
                             </li>
                             <!--Guest-->
                             <li class="pc-item pc-hasmenu">
-                                <a href="#!" class="pc-link"><span class="pc-micon"><i data-feather="users"></i></span><span
-                                    class="pc-mtext">Guests</span><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
+                                <a href="#!" class="pc-link"><span class="pc-micon"><i data-feather="home"></i></span><span
+                                    class="pc-mtext">Places</span><span class="pc-arrow"><i class="ti ti-chevron-right"></i></span></a>
                                 <ul class="pc-submenu">
-                                    <li class="pc-item"><a class="pc-link" href="#!">Guest List</a></li>
-                                    <li class="pc-item"><a class="pc-link" href="#!">Guest Deatails</a></li>
+                                    <li class="pc-item"><a class="pc-link" href="#!">Manage Places</a></li>
                                 </ul>
                             </li>
                             <!--Enquiries-->
@@ -159,17 +161,6 @@
                                     <i data-feather="menu"></i>
                                 </a>
                             </li>
-                            <%--                            <li class="dropdown pc-h-item">
-                                <a class="pc-head-link dropdown-toggle me-0" data-pc-toggle="dropdown" href="#" role="button"
-                                    aria-haspopup="false" aria-expanded="false">
-                                    <i data-feather="search"></i>
-                                </a>
-                                <div class="dropdown-menu pc-h-dropdown drp-search">
-                                    <form class="px-2 py-1">
-                                        <input type="search" class="form-control !border-0 !shadow-none" placeholder="Search here. . ." />
-                                    </form>
-                                </div>
-                            </li>--%>
                         </ul>
                     </div>
                     <!-- [Mobile Media Block end] -->
