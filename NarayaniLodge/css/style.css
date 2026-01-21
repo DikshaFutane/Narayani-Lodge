@@ -644,7 +644,7 @@ ul, ol {
 		top: 0;
 		width: 100%;
 		height: 100%;
-		background: rgba(0, 0, 0, 0.45); /* 0.4–0.6 recommended */
+		background: rgba(0, 0, 0, 0.6); /* 0.4–0.6 recommended */
 		z-index: 1;
 	}
 
@@ -723,6 +723,7 @@ ul, ol {
 	border-top: 1px solid #e5e5e5;
 }
 .services-section .section-title {
+	margin-top:5px;
 	margin-bottom: 36px;
 }
 .service-item {
@@ -769,65 +770,97 @@ ul, ol {
 /*------------------------
   Home Page Room Section 
 -------------------------*/
-
 .hp-room-items {
 	margin-left: -15px;
 	margin-right: -15px;
 	overflow: hidden;
 }
-.hp-room-items .hp-room-item {
-	height: 600px;
-	margin-right: -15px;
-	position: relative;
-	overflow: hidden;
-}
-.hp-room-items .hp-room-item:hover .hr-text {
-	bottom: 135px;
-}
-.hp-room-items .hp-room-item:hover .hr-text h2 {
-	margin-bottom: 30px;
-}
-.hp-room-items .hp-room-item .hr-text {
-	position: absolute;
-	left: 45px;
-	right: 25px;
-	bottom: -250px;
-	-webkit-transition: all 0.5s;
-	-o-transition: all 0.5s;
-	transition: all 0.5s;
-}
-.hp-room-items .hp-room-item .hr-text h3 {
-	color: #ffffff;
-	margin-bottom: 15px;
-}
-.hp-room-items .hp-room-item .hr-text h2 {
-	color: #dfa974;
-	font-weight: 700;
-	margin-bottom: 50px;
-	-webkit-transition: all 0.2s;
-	-o-transition: all 0.2s;
-	transition: all 0.2s;
-}
-.hp-room-items .hp-room-item .hr-text h2 span {
-	font-family: "Cabin", sans-serif;
-	font-size: 16px;
-	font-weight: 400;
-	color: #ffffff;
-}
-.hp-room-items .hp-room-item .hr-text table {
-	margin-bottom: 30px;
-}
-.hp-room-items .hp-room-item .hr-text table tbody tr td {
-	font-size: 16px;
-	color: #ffffff;
-	line-height: 36px;
-}
-.hp-room-items .hp-room-item .hr-text table tbody tr td.r-o {
-	width: 120px;
-}
-.hp-room-items .hp-room-item .hr-text .primary-btn:after {
-	background: #ffffff;
-}
+
+	.hp-room-items .hp-room-item {
+		height: 600px;
+		margin-right: -15px;
+		position: relative;
+		overflow: hidden;
+	}
+
+		/* 🔹 Dark overlay on image */
+		.hp-room-items .hp-room-item::before {
+			content: "";
+			position: absolute;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			background: linear-gradient( to top, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.25), rgba(0, 0, 0, 0) );
+			z-index: 1;
+		}
+
+		.hp-room-items .hp-room-item:hover .hr-text {
+			bottom: 135px;
+		}
+
+			.hp-room-items .hp-room-item:hover .hr-text h2 {
+				margin-bottom: 30px;
+			}
+
+		/* 🔹 Text panel improvements */
+		.hp-room-items .hp-room-item .hr-text {
+			position: absolute;
+			left: 45px;
+			right: 25px;
+			bottom: 0px;
+			padding:0px;
+			/*background: rgba(0, 0, 0, 0.45);*/ /* ✅ key fix */
+			border-radius: 6px;
+			z-index: 2;
+			transition: all 0.5s;
+		}
+
+			/* 🔹 Brighter title */
+			.hp-room-items .hp-room-item .hr-text h3 {
+				color: #ffffff;
+				font-weight: 600;
+				margin-bottom: 15px;
+			}
+
+			/* 🔹 Brighter price */
+			.hp-room-items .hp-room-item .hr-text h2 {
+				color: #f2c97d; /* brighter gold */
+				font-weight: 700;
+				margin-bottom: 40px;
+				transition: all 0.2s;
+			}
+
+				/* 🔹 Price text */
+				.hp-room-items .hp-room-item .hr-text h2 span {
+					font-family: "Cabin", sans-serif;
+					font-size: 16px;
+					font-weight: 400;
+					color: #ffffff;
+				}
+
+			/* 🔹 Table text clearer */
+			.hp-room-items .hp-room-item .hr-text table {
+				margin-bottom: 25px;
+			}
+
+				.hp-room-items .hp-room-item .hr-text table tbody tr td {
+					font-size: 16px;
+					color: #f1f1f1;
+					line-height: 34px;
+				}
+
+					.hp-room-items .hp-room-item .hr-text table tbody tr td.r-o {
+						width: 120px;
+						color: #ffffff;
+						font-weight: 500;
+					}
+
+			/* 🔹 Button contrast */
+			.hp-room-items .hp-room-item .hr-text .primary-btn:after {
+				background: #ffffff;
+			}
+
 /*---------------------
   Testimonial Slider
 -----------------------*/
@@ -904,6 +937,25 @@ ul, ol {
 .blog-section .section-title {
 	margin-bottom: 36px;
 }
+.blog-item, .set-bg {
+	position: relative; /* required for overlay */
+}
+
+	.blog-item::before, .set-bg::before {
+		content: "";
+		position: absolute;
+		inset: 0; /* top:0; right:0; bottom:0; left:0; */
+		background: rgba(0, 0, 0, 0.3); /* adjust darkness */
+		z-index: 1;
+		border-radius: 6px; /* optional: match image corners */
+	}
+
+	.blog-item .bi-text, .set-bg .bi-text {
+		position: relative;
+		z-index: 2; /* text above overlay */
+		color: black; /* ensure text is white */
+	}
+
 /*---------------------
   Footer Section
 -----------------------*/

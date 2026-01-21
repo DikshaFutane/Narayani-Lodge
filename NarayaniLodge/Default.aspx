@@ -2,8 +2,8 @@
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
-<%--    <main>--%>
-       <section class="hero-section">
+    <%--    <main>--%>
+    <section class="hero-section">
         <div class="container">
             <div class="row">
                 <div class="col-lg-6">
@@ -23,7 +23,7 @@
     </section>
     <!-- Hero Section End -->
 
-     <!-- About Us Section Begin -->
+    <!-- About Us Section Begin -->
     <section class="aboutus-section spad">
         <div class="container">
             <div class="row">
@@ -31,24 +31,27 @@
                     <div class="about-text">
                         <div class="section-title">
                             <span>About Us</span>
-                            <h2>Intercontinental LA <br />Westlake Hotel</h2>
+                            <h2>Narayani Luxury Lodge</h2>
                         </div>
-                        <p class="f-para">Sona.com is a leading online accommodation site. We’re passionate about
-                            travel. Every day, we inspire and reach millions of travelers across 90 local websites in 41
-                            languages.</p>
-                        <p class="s-para">So when it comes to booking the perfect hotel, vacation rental, resort,
-                            apartment, guest house, or tree house, we’ve got you covered.</p>
-                        <a href="#" class="primary-btn about-btn">Read More</a>
+                        <p class="f-para">
+                            Narayani Luxury Lodge offers a comfortable and peaceful stay for travelers seeking quality service and a relaxing environment. 
+                            Located in a convenient area, our lodge is ideal for families, business travelers, and tourists alike.
+                        </p>
+                        <p class="s-para">
+                            We focus on providing clean, well-furnished rooms with essential modern amenities to ensure a pleasant and hassle-free experience for every guest. 
+                            Our warm hospitality and attentive service make every stay memorable.
+                        </p>
+                        <a href="About.aspx" class="primary-btn about-btn">Read More</a>
                     </div>
                 </div>
                 <div class="col-lg-6">
                     <div class="about-pic">
                         <div class="row">
                             <div class="col-sm-6">
-                                <img src="img/about/about-1.jpg" alt="">
+                                <img src="img/about/about1.jpg" alt="">
                             </div>
                             <div class="col-sm-6">
-                                <img src="img/about/about-2.jpg" alt="">
+                                <img src="img/about/about2.png" alt="">
                             </div>
                         </div>
                     </div>
@@ -57,6 +60,180 @@
         </div>
     </section>
     <!-- About Us Section End -->
- <%--   </main>--%>
 
+    <!-- Services Section End -->
+    <section class="services-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>What We Do</span>
+                        <h2>Discover Our Services</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-029-wifi"></i>
+                        <h4>Free Wi-Fi Access</h4>
+                        <p>Stay connected with complimentary high-speed Wi-Fi available for all guests.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-003-air-conditioner"></i>
+                        <h4>Comfortable AC & Non-AC Rooms</h4>
+                        <p>Well-furnished rooms designed to provide comfort and relaxation for every stay.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-024-towel"></i>
+                        <h4>24/7 Hot & Cold Water</h4>
+                        <p>Continuous hot and cold water supply for your convenience at any time.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-026-bed"></i>
+                        <h4>Extra Bedding on Request</h4>
+                        <p>Additional bedding provided upon request for families or group stays</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-036-parking"></i>
+                        <h4>Parking Facility</h4>
+                        <p>Safe and convenient parking space available for guests.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-sm-6">
+                    <div class="service-item">
+                        <i class="flaticon-044-clock-1"></i>
+                        <h4>24/7 Front Desk Support</h4>
+                        <p>Friendly staff available round the clock to assist guests with their needs.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Services Section End -->
+
+    <!-- Home Room Section Begin -->
+    <section class="hp-room-section">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Where You Stay </span>
+                        <h2>Discover Our Rooms</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="hp-room-items">
+                <div class="row">
+                    <div class="col-lg-6 col-md-6">
+                        <div class="hp-room-item set-bg" data-setbg="img/room/ACRoom.jpeg">
+                            <div class="hr-text">
+                                <h3>AC Room</h3>
+                                <h2>2000rs<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Air Conditioner, Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-md-6">
+                        <div class="hp-room-item set-bg" data-setbg="img/room/NonACRoom.jpg">
+                            <div class="hr-text">
+                                <h3>Non-AC Room</h3>
+                                <h2>1600rs<span>/Pernight</span></h2>
+                                <table>
+                                    <tbody>
+                                        <tr>
+                                            <td class="r-o">Services:</td>
+                                            <td>Wifi, Television, Bathroom,...</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <a href="#" class="primary-btn">More Details</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Home Room Section End -->
+
+        <!-- Blog Section Begin -->
+    <section class="blog-section spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="section-title">
+                        <span>Places Nearby</span>
+                        <h2>Explore Around Us</h2>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-lg-4">
+                    <div class="blog-item set-bg" data-setbg="img/blog/mahalaxmitemple.jpg">
+                        <div class="bi-text">
+                            <span class="b-tag">Mahalaxmi Temple</span>
+                            <h4><a href="#">A Famous Spiritual Landmark In Kolhapur.</a></h4>
+                            <div class="b-time"><i class="icon_pin_alt"></i>2 km away</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-item set-bg" data-setbg="img/blog/rankala2.jpg">
+                        <div class="bi-text">
+                            <span class="b-tag">Rankala Lake</span>
+                            <h4><a href="#">A Popular Lakeside Spot For Relaxation And Sunsets.</a></h4>
+                            <div class="b-time"><i class="icon_pin_alt"></i>3 km away</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-item set-bg" data-setbg="img/blog/panchgangariver.png">
+                        <div class="bi-text">
+                            <span class="b-tag">Panchganga Ghat</span>
+                            <h4><a href="#">A Peaceful Holy Ghat With Spiritual Significance</a></h4>
+                            <div class="b-time"><i class="icon_pin_alt"></i> 2 km away</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog-item small-size set-bg" data-setbg="img/blog/newpalace.jpg">
+                        <div class="bi-text">
+                            <span class="b-tag">New Palace</span>
+                            <h4><a href="#">A Beautiful Palace Reflecting Kolhapur’s Royal History.</a></h4>
+                            <div class="b-time"><i class="icon_pin_alt"></i>3 km away</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="blog-item small-size set-bg" data-setbg="img/blog/panhala.jpeg">
+                        <div class="bi-text">
+                            <span class="b-tag">Panhala Fort</span>
+                            <h4><a href="#">A Famous Hill Fort Known For History And Nature.</a></h4>
+                            <div class="b-time"><i class="icon_pin_alt"></i> 20 km away</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Blog Section End -->
+
+    <%--   </main>--%>
 </asp:Content>
