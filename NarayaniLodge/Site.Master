@@ -40,7 +40,6 @@
             <div class="loader"></div>
         </div>
 
-
         <!-- Offcanvas Menu Section Begin -->
         <div class="offcanvas-menu-overlay"></div>
         <div class="canvas-open">
@@ -56,9 +55,9 @@
             </div>
             <nav class="mainmenu mobile-menu">
                 <ul>
-                    <li class="active"><a href="#">Home</a></li>
+                    <li><a href="Default.aspx">Home</a></li>
                     <li><a href="#">Rooms</a></li>
-                    <li><a href="#">About Us</a></li>
+                    <li><a href="About.aspx">About Us</a></li>
                     <%--<li><a href="#">Places</a>
                     <ul class="dropdown">
                         <li><a href="./room-details.html">Room Details</a></li>
@@ -123,9 +122,9 @@
                             <div class="nav-menu">
                                 <nav class="mainmenu">
                                     <ul>
-                                        <li class="active"><a href="#">Home</a></li>
+                                        <li><a href="Default.aspx">Home</a></li>
                                         <li><a href="#">Rooms</a></li>
-                                        <li><a href="#">About Us</a></li>
+                                        <li><a href="About.aspx">About Us</a></li>
                                         <li><a href="#">Places Nearby</a></li>
                                         <li><a href="#">Contact</a></li>
                                     </ul>

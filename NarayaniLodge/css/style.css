@@ -1120,7 +1120,7 @@ ul, ol {
 -------------------------*/
 
 .aboutus-page-section {
-	padding-top: 0;
+	padding-top: 5px;
 	padding-bottom: 70px;
 }
 .about-page-text {
@@ -1163,7 +1163,7 @@ ul, ol {
 	text-align: center;
 }
 .about-page-services .ap-service-item .api-text h3 {
-	color: #ffffff;
+	color: white;
 }
 /*---------------------
   Video Section
