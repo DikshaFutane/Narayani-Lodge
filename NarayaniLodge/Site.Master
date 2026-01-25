@@ -28,6 +28,7 @@
     <link rel="stylesheet" href="css/magnific-popup.css" type="text/css">
     <link rel="stylesheet" href="css/slicknav.min.css" type="text/css">
     <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="Content/Site.css" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
 
@@ -67,7 +68,7 @@
                         <li><a href="#">Premium Room</a></li>
                     </ul>
                 </li>--%>
-                    <li><a href="#">Places Nearby</a></li>
+                    <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
                     <li><a href="Contact.aspx">Contact</a></li>
                 </ul>
             </nav>
@@ -126,7 +127,7 @@
                                         <li><a href="Default.aspx">Home</a></li>
                                         <li><a href="#">Rooms</a></li>
                                         <li><a href="About.aspx">About Us</a></li>
-                                        <li><a href="#">Places Nearby</a></li>
+                                        <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
                                         <li><a href="Contact.aspx">Contact</a></li>
                                     </ul>
                                 </nav>
@@ -180,7 +181,7 @@
                                         <li><a href="Default.aspx">Home</a></li>
                                         <li><a href="#">Rooms</a></li>
                                         <li><a href="About.aspx">About Us</a></li>
-                                        <li><a href="#">Places Nearby</a></li>
+                                        <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
                                         <li><a href="Contact.aspx">Contact</a></li>
                                     </ul>
                                    </nav>

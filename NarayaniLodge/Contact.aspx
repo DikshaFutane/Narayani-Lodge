@@ -26,14 +26,27 @@
                                     </tr>
                                 </tbody>
                             </table>
+                            <div class="nearby-info">
+                                <p>
+                                    <strong>Railway Station:</strong>
+                                    <a href="https://www.google.com/maps/dir/Narayani+Lodge,+Kolhapur/Railway+Station,+Kolhapur" target="_blank">3 km
+                                    </a>
+                                </p>
+                                <p>
+                                    <strong>Bus Stand:</strong>
+                                    <a href="https://www.google.com/maps/dir/Narayani+Lodge,+Kolhapur/Bus+Stand,+Kolhapur" target="_blank">2.5 km
+                                    </a>
+                                </p>
+                            </div>
+
                         </div>
                     </div>
 
-                    <div class="col-lg-7 offset-lg-1">
+                    <div class="col-lg-4 ml-2\.5 mr-0">
                         <asp:Panel runat="server" CssClass="contact-form">
                             <div class="row">
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <asp:RequiredFieldValidator
                                         ControlToValidate="txtName"
                                         runat="server"
@@ -45,7 +58,7 @@
 
                                 </div>
 
-                                <div class="col-lg-6">
+                                <div class="col-lg-12">
                                     <asp:RequiredFieldValidator
                                         ControlToValidate="txtphone"
                                         runat="server"
@@ -116,10 +129,11 @@
                         </asp:Panel>
                     </div>
 
-                </div>
 
-                <div class="map">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.6462816340745!2d74.21635487377124!3d16.694574784079233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1000a7135f51f%3A0x6d656279cf0a9a17!2sNarayani%20Lodge!5e0!3m2!1sen!2sin!4v1769185652393!5m2!1sen!2sin" width="600" height="450" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+
+                    <div class="col-lg-4 ml-0">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3821.6462816340745!2d74.21635487377124!3d16.694574784079233!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc1000a7135f51f%3A0x6d656279cf0a9a17!2sNarayani%20Lodge!5e0!3m2!1sen!2sin!4v1769185652393!5m2!1sen!2sin" width="350" height="400" style="border: 0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
                 </div>
             </div>
         </section>
@@ -134,7 +148,6 @@
                 }, 3000); // 3 seconds
             }
         </script>--%>
-
     </main>
 </asp:Content>
 
