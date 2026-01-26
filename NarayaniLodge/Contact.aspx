@@ -44,8 +44,8 @@
 
                     <div class="col-lg-4 ml-2\.5 mr-0">
                         <asp:Panel runat="server" CssClass="contact-form">
-                            <div class="row">
-
+                           <h3>Send Us Message</h3>
+                            <div class="row mt-2">
                                 <div class="col-lg-12">
                                     <asp:RequiredFieldValidator
                                         ControlToValidate="txtName"
