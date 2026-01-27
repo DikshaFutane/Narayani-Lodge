@@ -47,10 +47,10 @@
                 <div class="col-lg-6">
                     <div class="about-pic">
                         <div class="row">
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 place-card">
                                 <img src="img/about/about1.jpg" alt="">
                             </div>
-                            <div class="col-sm-6">
+                            <div class="col-sm-6 place-card">
                                 <img src="img/about/about2.png" alt="">
                             </div>
                         </div>
@@ -186,7 +186,7 @@
             </div>
             <div class="row">
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/mahalaxmitemple.jpg">
+                    <div class="blog-item set-bg place-card" data-setbg="img/blog/mahalaxmitemple.jpg">
                         <div class="bi-text">
                             <span class="b-tag">Mahalaxmi Temple</span>
                             <h4><a href="#">A Famous Spiritual Landmark In Kolhapur.</a></h4>
@@ -195,7 +195,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/rankala2.jpg">
+                    <div class="blog-item set-bg place-card" data-setbg="img/blog/rankala2.jpg">
                         <div class="bi-text">
                             <span class="b-tag">Rankala Lake</span>
                             <h4><a href="#">A Popular Lakeside Spot For Relaxation And Sunsets.</a></h4>
@@ -204,7 +204,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item set-bg" data-setbg="img/blog/panchgangariver.png">
+                    <div class="blog-item set-bg place-card" data-setbg="img/blog/panchgangariver.png">
                         <div class="bi-text">
                             <span class="b-tag">Panchganga Ghat</span>
                             <h4><a href="#">A Peaceful Holy Ghat With Spiritual Significance</a></h4>
@@ -213,7 +213,7 @@
                     </div>
                 </div>
                 <div class="col-lg-8">
-                    <div class="blog-item small-size set-bg" data-setbg="img/blog/newpalace.jpg">
+                    <div class="blog-item small-size set-bg place-card" data-setbg="img/blog/newpalace.jpg">
                         <div class="bi-text">
                             <span class="b-tag">New Palace</span>
                             <h4><a href="#">A Beautiful Palace Reflecting Kolhapur’s Royal History.</a></h4>
@@ -222,7 +222,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4">
-                    <div class="blog-item small-size set-bg" data-setbg="img/blog/panhala.jpeg">
+                    <div class="blog-item small-size set-bg place-card" data-setbg="img/blog/panhala.jpeg">
                         <div class="bi-text">
                             <span class="b-tag">Panhala Fort</span>
                             <h4><a href="#">A Famous Hill Fort Known For History And Nature.</a></h4>
@@ -236,4 +236,22 @@
     <!-- Blog Section End -->
 
     <%--   </main>--%>
+     <script>
+     document.addEventListener("DOMContentLoaded", function () {
+         const cards = document.querySelectorAll(".place-card");
+
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach((entry, index) => {
+                 if (entry.isIntersecting) {
+                     setTimeout(() => {
+                         entry.target.classList.add("show");
+                     }, index * 150); // delay animation
+                     observer.unobserve(entry.target);
+                 }
+             });
+         }, { threshold: 0.2 });
+
+         cards.forEach(card => observer.observe(card));
+     });
+     </script>
 </asp:Content>

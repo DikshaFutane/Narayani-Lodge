@@ -36,21 +36,21 @@
             </div>
             <div class="about-page-services">
                 <div class="row">
-                    <div class="col-md-4">
+                    <div class="col-md-4 place-card">
                         <div class="ap-service-item set-bg" data-setbg="img/about/aboutp3.jpg">
                             <div class="api-text">
                                 <h3>AC Room</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 place-card">
                         <div class="ap-service-item set-bg" data-setbg="img/about/aboutp4.jpg">
                             <div class="api-text">
                                 <h3>Non-AC Room</h3>
                             </div>
                         </div>
                     </div>
-                    <div class="col-md-4">
+                    <div class="col-md-4 place-card">
                         <div class="ap-service-item set-bg" data-setbg="img/about/aboutp2.jpeg">
                             <div class="api-text">
                                 <h3>Dormitory Hall</h3>
@@ -62,4 +62,22 @@
         </div>
     </section>
     </main>
+     <script>
+     document.addEventListener("DOMContentLoaded", function () {
+         const cards = document.querySelectorAll(".place-card");
+
+         const observer = new IntersectionObserver((entries) => {
+             entries.forEach((entry, index) => {
+                 if (entry.isIntersecting) {
+                     setTimeout(() => {
+                         entry.target.classList.add("show");
+                     }, index * 150); // delay animation
+                     observer.unobserve(entry.target);
+                 }
+             });
+         }, { threshold: 0.2 });
+
+         cards.forEach(card => observer.observe(card));
+     });
+     </script>
 </asp:Content>

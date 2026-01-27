@@ -767,6 +767,40 @@ ul, ol {
 	-o-transition: all 0.3s;
 	transition: all 0.3s;
 }
+
+@media (hover: none) and (pointer: coarse) {
+	.service-item:active {
+		background: #dfa974;
+	}
+
+		.service-item:active i {
+			color: #ffffff;
+		}
+
+		.service-item:active h4 {
+			color: #ffffff;
+		}
+
+		.service-item:active p {
+			color: #ffffff;
+		}
+}
+
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+	.service-item {
+		padding: 20px 15px 15px;
+	}
+
+		.service-item h4 {
+			font-size: 18px;
+		}
+
+		.service-item p {
+			font-size: 14px;
+		}
+}
 /*------------------------
   Home Page Room Section 
 -------------------------*/
@@ -1622,6 +1656,7 @@ ul, ol {
 /*---------------------
   Blog Section
 -----------------------*/
+
 
 .blog-section.blog-page {
 	padding-top: 0;
