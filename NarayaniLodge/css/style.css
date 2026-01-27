@@ -1992,6 +1992,18 @@ ul, ol {
 /*---------------------
   Contact Section
 -----------------------*/
+@media (max-width: 576px) {
+	.contact-form textarea {
+		height: 120px;
+	}
+
+	.contact-form button {
+		width: 100%;
+		padding: 12px;
+	}
+}
+
+
 
 .contact-section {
 	padding-top: 10px;
