@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Nonacroomdetails.aspx.cs" Inherits="Nonacroomdetails" %>
+﻿<%@ Page Title="Room" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeFile="Nonacroomdetails.aspx.cs" Inherits="Nonacroomdetails" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="MainContent" Runat="Server">
      <!-- Room Details Section Begin -->

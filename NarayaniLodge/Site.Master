@@ -32,6 +32,7 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 
 </head>
@@ -75,11 +76,11 @@
                 </ul>
             </nav>
             <div id="mobile-menu-wrap"></div>
-            <%--<div class="top-social">
+            <div class="top-social">
                 <a href="#"><i class="fa fa-facebook"></i></a>
                 <a href="#"><i class="fa fa-twitter"></i></a>
                 <a href="#"><i class="fa fa-instagram"></i></a>
-            </div>--%>
+            </div>
             <ul class="top-widget">
                 <li><i class="fa fa-phone"></i>(+91) 7218423323</li>
                 <li><i class="fa fa-envelope"></i>naratawadekark@gmail.com</li>
