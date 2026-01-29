@@ -1541,7 +1541,7 @@ ul, ol {
 	padding-top: 12px;
 	margin-bottom: 24px;
 	resize: none;
-}
+}/*
 .review-add .ra-form textarea::-webkit-input-placeholder {
 	color: #aaaab3;
 }
@@ -1567,13 +1567,13 @@ ul, ol {
 	border: none;
 	padding: 14px 34px 13px;
 	display: inline-block;
-}
+}*/
 .room-booking {
-	padding: 0 30px 0 40px;
+	padding: 0;
 }
 .room-booking h3 {
 	color: #19191a;
-	margin-bottom: 30px;
+	/*margin-bottom: 10px;*/
 }
 .room-booking form .check-date {
 	position: relative;
@@ -1639,6 +1639,7 @@ ul, ol {
 .room-booking form .select-option .nice-select .list {
 	margin-top: 0;
 	width: 100%;
+	margin-bottom:10px;
 }
 .room-booking form button {
 	display: block;
@@ -1653,6 +1654,79 @@ ul, ol {
 	height: 46px;
 	margin-top: 30px;
 }
+	.room-booking .booking-form .check-date {
+		position: relative;
+		margin-bottom: 15px;
+	}
+
+		.room-booking .booking-form .check-date label {
+			font-size: 14px;
+			color: #707079;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.room-booking .booking-form .check-date input {
+			width: 100%;
+			height: 50px;
+			border: 1px solid #ebebeb;
+			border-radius: 2px;
+			font-size: 16px;
+			color: #19191a;
+			text-transform: uppercase;
+			font-weight: 500;
+			padding-left: 20px;
+		}
+
+		.room-booking .booking-form .check-date i {
+			color: #dfa974;
+			position: absolute;
+			right: 18px;
+			bottom: 17px;
+		}
+
+	.room-booking .booking-form .select-option {
+		margin-bottom: 15px;
+	}
+
+		.room-booking .booking-form .select-option label {
+			font-size: 14px;
+			color: #707079;
+			display: block;
+			margin-bottom: 10px;
+		}
+
+		.room-booking .booking-form .select-option .nice-select {
+			border-radius: 2px;
+			border: 1px solid #ebebeb;
+			height: 50px;
+			line-height: 50px;
+			padding-left: 20px;
+			width: 100%;
+		
+		}
+
+	.room-booking .booking-form button {
+		display: block;
+		font-size: 14px;
+		text-transform: uppercase;
+		border: 1px solid #dfa974;
+		border-radius: 2px;
+		color: #dfa974;
+		font-weight: 500;
+		background: transparent;
+		width: 100%;
+		height: 46px;
+		/*margin-top: 30px;*/
+	
+	}
+
+.room-booking .booking-form button {
+	display: block;
+	margin-top: 30px;
+}
+
+
 /*---------------------
   Blog Section
 -----------------------*/

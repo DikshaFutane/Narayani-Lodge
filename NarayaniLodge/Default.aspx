@@ -134,7 +134,7 @@
             <div class="hp-room-items">
                 <div class="row">
                     <div class="col-lg-6 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/room/ACRoom.jpeg">
+                        <div class="hp-room-item set-bg" data-setbg="img/room/rooms/ACRoom.jpeg">
                             <div class="hr-text">
                                 <h3>AC Room</h3>
                                 <h2>2000rs<span>/Pernight</span></h2>
@@ -151,7 +151,7 @@
                         </div>
                     </div>
                     <div class="col-lg-6 col-md-6">
-                        <div class="hp-room-item set-bg" data-setbg="img/room/NonACRoom.jpg">
+                        <div class="hp-room-item set-bg" data-setbg="img/room/rooms/Nonacroom.jpg">
                             <div class="hr-text">
                                 <h3>Non-AC Room</h3>
                                 <h2>1600rs<span>/Pernight</span></h2>
