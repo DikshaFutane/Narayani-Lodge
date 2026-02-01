@@ -10,7 +10,7 @@
                     <div class="hero-text">
                         <h1>Narayani Luxury Lodge</h1>
                         <p>A perfect place to relax with well-furnished rooms and warm hospitality.</p>
-                        <a href="#" class="primary-btn">Explore Rooms</a>
+                        <a href="Rooms.aspx" class="primary-btn">Explore Rooms</a>
                     </div>
                 </div>
             </div>

@@ -12,7 +12,7 @@
                             <div class="rd-title">
                                 <h3>AC Room</h3>
                                 <div class="rdt-right">
-                                    <a href="#">Booking Now</a>
+                                    <a href="BookNow.aspx">Booking Now</a>
                                 </div>
                             </div>
                             <h2>2000rs<span>/Pernight</span></h2>

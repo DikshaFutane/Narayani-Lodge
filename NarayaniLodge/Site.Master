@@ -56,7 +56,7 @@
             </div>
             
             <div class="header-configure-area">
-                <a href="#" class="bk-btn">Booking Now</a>
+                <a href="BookNow.aspx" class="bk-btn">Booking Now</a>
             </div>
             <nav class="mainmenu mobile-menu">
                 <ul>
@@ -106,7 +106,7 @@
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                 </div>
-                                <a href="#" class="bk-btn">Booking Now</a>
+                                <a href="BookNow.aspx" class="bk-btn">Booking Now</a>
                             </div>
                         </div>
                     </div>
@@ -186,6 +186,7 @@
                                         <li><a href="About.aspx">About Us</a></li>
                                         <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
                                         <li><a href="Contact.aspx">Contact</a></li>
+                                        <li><a href="BookNow.aspx">Book Now</a></li>
                                     </ul>
                                    </nav>
                                         </div>
