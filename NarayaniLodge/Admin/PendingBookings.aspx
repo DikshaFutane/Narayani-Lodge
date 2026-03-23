@@ -1,9 +1,9 @@
-﻿<%@ Page Title="" Language="C#"  MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeFile="AllBookings.aspx.cs" Inherits="NarayaniLodge.Admin.AllBookings" %>
-<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeFile="PendingBookings.aspx.cs" Inherits="Admin_PendingBookings" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
     <link rel="icon" href="assets/images/narayanilodgelogo.png" type="image/x-icon" />
-<link rel="stylesheet" href="assets/css/style.css" />
 </asp:Content>
-<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
+<asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
     <!-- [ Main Content ] start -->
     <div class="pc-container">
         <div class="pc-content">
@@ -11,7 +11,7 @@
             <div class="page-header">
                 <div class="page-block">
                     <div class="page-header-title">
-                        <h5 class="mb-0 font-medium">All Bookings</h5>
+                        <h5 class="mb-0 font-medium">Pending Bookings</h5>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 <div class="col-span-12">
                     <div class="card">
                         <div class="card-header">
-                            <h5>Complete list of all bookings.</h5>
+                            <h5>These bookings are awaiting admin approval</h5>
                         </div>
                         <div class="card-body">
                             <div class="card table-card">
@@ -33,15 +33,15 @@
                                 <div class="table-responsive">
 
                                     <asp:GridView
-                                        ID="gvAllBookings"
+                                        ID="gvPendingBookings"
                                         runat="server"
                                         AutoGenerateColumns="False"
                                         CssClass="table table-bordered table-striped"
                                         AllowPaging="True"
                                         PageSize="10"
-                                        OnPageIndexChanging="gvAllBookings_PageIndexChanging"
+                                        OnPageIndexChanging="gvPendingBookings_PageIndexChanging"
                                         DataKeyNames="BookingId"
-                                        OnRowCommand="gvAllBookings_RowCommand"
+                                        OnRowCommand="gvPendingBookings_RowCommand"
                                         EmptyDataText="No Data Available."
                                         ShowHeaderWhenEmpty="True">
                                         <HeaderStyle BackColor="#d0d6dd"
@@ -68,11 +68,7 @@
                                             <asp:BoundField DataField="CheckOutDate" HeaderText="Check Out"
                                                 DataFormatString="{0:dd-MM-yyyy}" />
 
-                                            <asp:BoundField DataField="PaymentStatus" HeaderText="Payment Mode" />
-                                            <asp:BoundField DataField="PaidAmount" HeaderText="Paid Amount" />
-                                            <asp:BoundField DataField="RemainingAmount" HeaderText="Pending Amount" />
-
-                                            <asp:BoundField DataField="BookingStatus" HeaderText="Status" />
+                                            <asp:BoundField DataField="BookingStatus" HeaderText="Booking Status" />
 
                                             <asp:TemplateField HeaderText="Actions">
                                                 <ItemTemplate>
@@ -80,7 +76,7 @@
                                                     <asp:Button
                                                         ID="btnView"
                                                         runat="server"
-                                                        Text="View"
+                                                        Text="Approve"
                                                         CssClass="btn btn-sm btn-info"
                                                         CommandName="ViewBooking"
                                                         CommandArgument='<%# Eval("BookingId") %>' />
@@ -88,23 +84,12 @@
                                                     <asp:Button
                                                         ID="btnEdit"
                                                         runat="server"
-                                                        Text="Edit"
-                                                        CssClass="btn btn-sm btn-warning"
-                                                        CommandName="EditBooking"
-                                                        CommandArgument='<%# Eval("BookingId") %>' />
-                                                   
-                                                    <asp:Button
-                                                        ID="btnCancel"
-                                                        runat="server"
                                                         Text="Cancel"
                                                         CssClass="btn btn-sm btn-danger"
-                                                        CommandName="CancelBooking"
-                                                        CommandArgument='<%# Eval("BookingId") %>'
-                                                         OnClientClick="return confirm('Are you sure you want to cancel this booking?');" />
-
+                                                        CommandName="EditBooking"
+                                                        CommandArgument='<%# Eval("BookingId") %>' />
                                                 </ItemTemplate>
                                             </asp:TemplateField>
-
                                         </Columns>
                                     </asp:GridView>
 
@@ -120,6 +105,6 @@
         </div>
         <!-- [ Main Content ] end -->
     </div>
-    
-    <!-- [ Main Content ] end -->
+
 </asp:Content>
+
