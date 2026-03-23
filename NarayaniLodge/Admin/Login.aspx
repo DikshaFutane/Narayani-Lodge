@@ -46,11 +46,12 @@
                         <div class="w-full max-w-[350px] relative">
                             <div class="card sm:my-12  w-full shadow-none">
                                 <div class="card-body !p-10">
-                                    <div class="text-center mb-8">
-                                        <div class="logo">
-                                            <span class="main" style="color:grey; font-size:35px">NARAYANI</span><br />
-                                            <span class="sub" style="color:grey">Luxury Lodge</span>
+                                    <div class="text-center mb-1 row">
+                                        <div class="col-5"></div>
+                                        <div class="logo col-2">
+                                            <img src="../img/naraynilogo.png" alt="logo" width="200"/>
                                         </div>
+                                        <div class="col-5"></div>
                                     </div>
                                     <h4 class="text-center font-medium mb-3">Login</h4>
                                     <div class="mb-3">
@@ -65,7 +66,7 @@
                                             <label class="form-check-label text-muted" for="customCheckc1">Remember me?</label>
                                         </div>--%>
                                         <h6 class="font-normal text-primary-500 mb-0">
-                                            <a href="#">Forgot Password? </a>
+                                            <a href="/ForgetPassword.aspx?role=admin">Forgot Password? </a>
                                         </h6>
                                     </div>
                                     <div class="mt-4 text-center">
