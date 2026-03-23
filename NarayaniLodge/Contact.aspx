@@ -4,7 +4,7 @@
     <main aria-labelledby="title">
         <!-- Contact Section Begin -->
         <section class="contact-section spad">
-            <div class="container">
+            <div class="container mt-4">
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="contact-text">
@@ -66,16 +66,14 @@
                                         ForeColor="Red"
                                         Display="Dynamic" />
                                     <asp:RegularExpressionValidator
-                                        ControlToValidate="txtphone"
                                         runat="server"
-                                        ErrorMessage="Enter valid 10-digit phone number"
+                                        ControlToValidate="txtPhone"
                                         ValidationExpression="^[6-9]\d{9}$"
                                         ForeColor="Red"
-                                        Display="Dynamic" />
+                                        ErrorMessage="Enter valid Indian mobile number"
+                                        CssClass="validator" />
                                     <asp:TextBox ID="txtphone" runat="server" CssClass="form-control"
                                         placeholder="Phone Number"></asp:TextBox>
-
-
 
                                 </div>
                                 <div class="col-12 col-md-12 col-lg-12">
@@ -132,21 +130,21 @@
                         <h4>Frequently Asked Questions</h4>
                         <div class="faq-container pt-3">
                             <div class="faq-item">
-                                <div class="faq-question"><i class="fa-solid fa-user-check"></i> What are the check-in and check-out procedures?</div>
+                                <div class="faq-question"><i class="fa-solid fa-user-check"></i>What are the check-in and check-out procedures?</div>
                                 <div class="faq-answer">
                                     Our team will warmly welcome you when you arrive, and checking in is quick and easy. When it’s time to leave, we’ll make sure your check-out is smooth and hassle-free.  
                                     If you need any flexibility, just let us know and we’ll do our best to accommodate you.
                                 </div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question"><i class="fa-solid fa-car icon car-icon"></i> Do you provide parking facilities?</div>
+                                <div class="faq-question"><i class="fa-solid fa-car icon car-icon"></i>Do you provide parking facilities?</div>
                                 <div class="faq-answer">Yes, we have free private parking available for all our guests.</div>
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question"><i class="fa-solid fa-bed icon bed-icon"></i> Is room service available?</div>
+                                <div class="faq-question"><i class="fa-solid fa-bed icon bed-icon"></i>Is room service available?</div>
                                 <div class="faq-answer">We do not have 24-hour room service, but our staff can assist with basic requests during the day.</div>
                             </div>
-                            <div class="faq-question"><i class="fa-solid fa-location-dot icon location-icon"></i> How can I reach Narayani Lodge?</div>
+                            <div class="faq-question"><i class="fa-solid fa-location-dot icon location-icon"></i>How can I reach Narayani Lodge?</div>
                             <div class="faq-answer">
                                 Narayani Lodge is easily accessible from the main transport points in Kolhapur:  
                                 - **From Kolhapur Railway Station:** Just 2 km away, you can take a taxi or auto-rickshaw (approx. 10 minutes).  
@@ -154,7 +152,7 @@
                                 We are happy to guide you for a smooth arrival.
                             </div>
                             <div class="faq-item">
-                                <div class="faq-question"><i class="fa-solid fa-calendar-check icon calendar-icon"></i> Can I book rooms online?</div>
+                                <div class="faq-question"><i class="fa-solid fa-calendar-check icon calendar-icon"></i>Can I book rooms online?</div>
                                 <div class="faq-answer">Absolutely! You can book rooms directly on our website or contact our reception for assistance.</div>
                             </div>
                         </div>
