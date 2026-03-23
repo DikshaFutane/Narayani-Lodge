@@ -38,6 +38,7 @@
                     border-color: #dfa974;
                     box-shadow: 0 0 5px rgba(223,169,116,0.3);
                 }
+                
 
         .check-date {
             margin-bottom: 18px;
