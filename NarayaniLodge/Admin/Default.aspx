@@ -1,60 +1,133 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NarayaniLodge.Admin.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Admin/Admin.Master" AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="NarayaniLodge.Admin.Default" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="icon" href="assets/images/narayanilodgelogo.png" type="image/x-icon" />
+    <style>
+.popup-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(3px);
+    z-index: 999;
+}
+
+.popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    width: 400px;
+    border-radius: 16px;
+    padding: 25px;
+    z-index: 1000;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    animation: fadeIn 0.3s ease-in-out;
+}
+
+.popup h3 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 20px;
+}
+
+.popup label {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.popup input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+}
+
+.popup .btn-primary {
+    background: #16a34a;
+    color: white;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+}
+
+.popup .btn-primary:hover {
+    background: #15803d;
+}
+
+.popup .btn-secondary {
+    background: #e5e7eb;
+    padding: 8px 15px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translate(-50%, -55%); }
+    to { opacity: 1; transform: translate(-50%, -50%); }
+}
+</style>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <!-- [ Main Content ] start -->
     <div class="pc-container">
         <div class="pc-content">
-            <div class="grid grid-cols-12 gap-x-6">
-                <div class="col-span-12 xl:col-span-3 md:col-span-6">
+            <div class="mb-4">
+                <asp:Label ID="lblGreeting" runat="server" CssClass="text-xl font-semibold"></asp:Label>
+            </div>
+            <div class="grid grid-cols-12 gap-x-3">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <div class="card">
                         <div class="card-header !pb-0 !border-b-0">
-                            <h5>Today's Booking's</h5>
+                            <h5>Today's Arrival</h5>
                         </div>
                         <div class="card-body">
                             <div class="flex items-center justify-between gap-3 flex-wrap">
                                 <h3 class="font-light flex items-center mb-0">
-                                    <i class="feather icon-calendar text-success-500 text-[30px] mr-1.5"></i>
-                                    <asp:Label ID="lblbookings" runat="server" Text="0"></asp:Label>
+                                    <i class="feather icon-log-in text-success-500 text-[30px] mr-1.5"></i>
+                                    <asp:Label ID="lblArrivals" runat="server" Text="0"></asp:Label>
                                 </h3>
-                                <p class="mb-0">
-                                    <asp:Label ID="progressPercent" runat="server" Text="0%"></asp:Label>
-                                </p>
-                            </div>
-                            <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-6 dark:bg-themedark-bodybg">
-                                <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                                    id="progressBar"
-                                    runat="server"
-                                    role="progressbar"
-                                    style="width: 0%">
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 xl:col-span-3 md:col-span-6">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <div class="card">
                         <div class="card-header !pb-0 !border-b-0">
-                            <h5>Total Rooms</h5>
+                            <h5>Today’s Departures</h5>
                         </div>
                         <div class="card-body">
                             <div class="flex items-center justify-between gap-3 flex-wrap">
                                 <h3 class="font-light flex items-center mb-0">
-                                    <i class="feather icon-grid text-danger-500 text-[30px] mr-1.5"></i>
-                                    <asp:Label ID="lblRooms" runat="server" Text="0"></asp:Label>
+                                    <i class="feather icon-log-out text-danger-500 text-[30px] mr-1.5"></i>
+                                    <asp:Label ID="lblDepartures" runat="server" Text="0"></asp:Label>
                                 </h3>
-                                <%--<p class="mb-0">100%</p>--%>
-                            </div>
-                            <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-6 dark:bg-themedark-bodybg">
-                                <div class="bg-theme-bg-2 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar"
-                                    style="width: 100%">
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 xl:col-span-3 md:col-span-6">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <div class="card">
+                        <div class="card-header !pb-0 !border-b-0">
+                            <h5>Available Rooms</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="flex items-center justify-between gap-3 flex-wrap">
+                                <h3 class="font-light flex items-center mb-0">
+                                    <i class="feather icon-grid text-primary-500 text-[30px] mr-1.5"></i>
+                                    <asp:Label ID="lblAvailableRooms" runat="server" Text="0"></asp:Label>
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <div class="card">
                         <div class="card-header !pb-0 !border-b-0">
                             <h5>New Enquires</h5>
@@ -62,268 +135,247 @@
                         <div class="card-body">
                             <div class="flex items-center justify-between gap-3 flex-wrap">
                                 <h3 class="font-light flex items-center mb-0">
-                                    <i class="feather icon-message-square text-success-500 text-[30px] mr-1.5"></i>
-                                    <asp:Label ID="lblenq" runat="server" Text="0"></asp:Label>
+                                    <i class="feather icon-message-square text-blue-500 text-[30px] mr-1.5"></i>
+                                    <asp:Label ID="lblNewEnquiry" runat="server" Text="0"></asp:Label>
                                 </h3>
-                                <p class="mb-0">
-                                    <asp:Label ID="enq" runat="server" Text="0%"></asp:Label>
-                                </p>
-                            </div>
-                            <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-6 dark:bg-themedark-bodybg">
-                                <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]"
-                                    id="enqprogressBar" runat="server"
-                                    role="progressbar"
-                                    style="width: 0%">
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-span-12 xl:col-span-3 md:col-span-6">
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
                     <div class="card">
                         <div class="card-header !pb-0 !border-b-0">
-                            <h5>Today's Revenue</h5>
+                            <h5>Today’s Revenue</h5>
                         </div>
                         <div class="card-body">
                             <div class="flex items-center justify-between gap-3 flex-wrap">
                                 <h3 class="font-light flex items-center mb-0">
-                                    <i class="feather icon-dollar-sign  text-success-500 text-[30px] mr-1.5"></i>
+                                    <span class="text-success-500 text-[30px] mr-1.5">₹</span>
                                     <asp:Label ID="lblrevenue" runat="server" Text="0"></asp:Label>
                                 </h3>
-                                <p class="mb-0">
-                                    <asp:Label ID="lblrev" runat="server" Text="0%"></asp:Label>
-                                </p>
                             </div>
-                            <div class="w-full bg-theme-bodybg rounded-lg h-1.5 mt-6 dark:bg-themedark-bodybg">
-                                <div class="bg-theme-bg-1 h-full rounded-lg shadow-[0_10px_20px_0_rgba(0,0,0,0.3)]" role="progressbar" id="revenueBar" runat="server"
-                                    style="width: 0%">
-                                </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-4">
+                    <div class="card">
+                        <div class="card-header !pb-0 !border-b-0">
+                            <h5>Pending Payments</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="flex items-center justify-between gap-3 flex-wrap">
+                                <h3 class="font-light flex items-center mb-0">
+                                    <span class="text-success-500 text-[30px] mr-1.5">₹</span>
+                                    <asp:Label ID="lblPendingPayments" runat="server" Text="0"></asp:Label>
+                                </h3>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
 
+            <div class="grid grid-cols-12 gap-x-6">
+                <div class="col-span-12 md:col-span-6 lg:col-span-6">
+                    <div class="card">
+                        <div class="card-header !pb-0 !border-b-0">
+                            <h5>Weekly Revenue</h5>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 80%; margin-bottom: 10px">
+                                <canvas id="revenueChart" height="250"></canvas>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-span-12 md:col-span-6 lg:col-span-6">
+                    <div class="card">
+                        <div class="card-header !pb-0 !border-b-0">
+                            <h5>Booking Status</h5>
+                        </div>
+                        <div class="card-body">
+                            <div style="width: 66%; margin-bottom: 10px">
+                                <canvas id="bookingStatusChart" height="250"></canvas>
 
-<%--            <center>
-
-
-                <asp:GridView ID="grdEmp" runat="server" Width="90%" DataKeyNames="BookingId" CssClass="rowHover footable" RowStyle-CssClass="rowHover"
-                    AutoGenerateColumns="False" AllowPaging="True" OnPageIndexChanging="grdEmp_PageIndexChanging"
-                    PageSize="7" OnRowCancelingEdit="grdEmp_RowCancelingEdit"
-                    OnRowDeleting="grdEmp_RowDeleting" OnRowEditing="grdEmp_RowEditing"
-                    OnRowUpdating="grdEmp_RowUpdating"
-                    CellPadding="0" ForeColor="#333333" GridLines="None" Style="align-items: Center" HorizontalAlign="Center" OnRowDataBound="grdEmp_RowDataBound">
-                    <AlternatingRowStyle BackColor="White" ForeColor="#284775" />
-                    <Columns>
-                        <asp:TemplateField HeaderText="&nbsp;&nbsp;&nbsp; Sr No." ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblRowNumber" Text='<%# Container.DataItemIndex + 1 %>' runat="server" />
-                            </ItemTemplate>
-
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Booking Id" ItemStyle-Width="80px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblid" runat="server" Text='<%# Eval("BookingId")%>'></asp:Label>
-                               *** <%--<asp:Label ID="lbldeptid" runat="server" Text='<%# Eval("Word_Code")%>' Visible="false"></asp:Label>***
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Name" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblnme" runat="server" Text='<%#Eval("GuestName")%>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-
-                        <asp:TemplateField HeaderText="Room Type" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblroom" runat="server" Text='<%#Eval("RoomType")%>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-
-                        <asp:TemplateField HeaderText="Check-In Date" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblchkindt" runat="server" Text='<%#Eval("CheckInDate")%>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-                        <asp:TemplateField HeaderText="Check-Out Date" ItemStyle-Width="180px" ItemStyle-HorizontalAlign="Center">
-                            <ItemTemplate>
-                                <asp:Label ID="lblchkotdt" runat="server" Text='<%#Eval("CheckOutDate")%>'></asp:Label>
-                            </ItemTemplate>
-                            <HeaderStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-
-
-
-
-***<%--                        <asp:TemplateField HeaderText="दुरुस्ती">
-                            <ItemTemplate>
-                                <%-- <asp:LinkButton ID="lnkBtnEdit" runat="server"  Text="Action" CssClass="btn btn-info" OnClick="Display"></asp:LinkButton>
-                                <asp:ImageButton ID="lnkBtnEdit" runat="server" CommandName="Edit" ImageUrl='<%# "~/assets/img/Edit.png" %>' ToolTip="Edit" CausesValidation="false" OnClick="Display" />
-                            </ItemTemplate>
-                        </asp:TemplateField>
-                        <asp:TemplateField HeaderText="Edit" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80px">
-                                                        <ItemTemplate>
-                                                            <asp:ImageButton ID="imgEdit" runat="server" CommandName="Edit" ImageUrl='<%# "~/Images/Edit.png" %>' ToolTip="Edit" CausesValidation="false" />
-                                                        </ItemTemplate>
-                                                        <EditItemTemplate>
-                                                            <asp:LinkButton ID="lkUpdate" runat="server" Text="Update" CommandName="Update" ToolTip="Update" CausesValidation="false"></asp:LinkButton>
-                                                            <asp:LinkButton ID="lkCancel" runat="server" Text="Cancel" CommandName="Cancel" ToolTip="Cancel" CausesValidation="false"></asp:LinkButton>
-                                                        </EditItemTemplate>
-                                                        <HeaderStyle HorizontalAlign="Center" />
-                                                        <ItemStyle HorizontalAlign="Center" />
-                                                    </asp:TemplateField>***
-                        <asp:TemplateField HeaderText="Cancel" HeaderStyle-HorizontalAlign="Center" ItemStyle-HorizontalAlign="Center" ItemStyle-Width="80px">
-                            <ItemTemplate>
-                                <asp:ImageButton ID="imgDelete" runat="server" CommandName="Delete" ImageUrl="~/assets/img/Delete.png" OnClientClick="return confirm('Cancel Booking')" ToolTip="Delete" CausesValidation="false" />
-                            </ItemTemplate>
-
-                            <HeaderStyle HorizontalAlign="Center" />
-                            <ItemStyle HorizontalAlign="Center" />
-                        </asp:TemplateField>
-                    </Columns>
-                    <EditRowStyle BackColor="#999999" />
-                    <FooterStyle BackColor="#5D7B9D" Font-Bold="True" ForeColor="White" />
-                    <HeaderStyle BackColor="#012970" Font-Bold="True" ForeColor="White" />
-                    <PagerStyle CssClass="PageIndex" BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
-                    <RowStyle CssClass="rowHover" BackColor="#F7F6F3" ForeColor="#333333"></RowStyle>
-                    <SelectedRowStyle BackColor="#E2DED6" Font-Bold="True" ForeColor="#333333" />
-                    <SortedAscendingCellStyle BackColor="#E9E7E2" />
-                    <SortedAscendingHeaderStyle BackColor="#506C8C" />
-                    <SortedDescendingCellStyle BackColor="#FFFDF8" />
-                    <SortedDescendingHeaderStyle BackColor="#6F8DAE" />
-                </asp:GridView>
-
-                <div id="styleSelector"></div>
-            </center>
---%>
-
-
-
-
-
-
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="col-span-12 xl:col-span-8 md:col-span-6">
                 <div class="card table-card">
                     <div class="card-header">
-                        <h5>Today's Booking's</h5>
+                        <h5>Recent Bookings</h5>
                     </div>
                     <div class="card-body">
-                        <div class="table-responsive">
-                            <table class="table table-hover">
+                        <div class="table-responsive p-2">
+                            <asp:GridView
+                                ID="gvAllBookings"
+                                runat="server"
+                                AutoGenerateColumns="False"
+                                CssClass="table table-bordered table-striped"
+                                AllowPaging="True"
+                                PageSize="10"
+                                DataKeyNames="BookingId"
+                                EmptyDataText="No Data Available."
+                                ShowHeaderWhenEmpty="True"
+                                OnPageIndexChanging="gvAllBookings_PageIndexChanging">
+                                <HeaderStyle BackColor="#d0d6dd"
+                                    ForeColor="#111"
+                                    Font-Bold="true"
+                                    HorizontalAlign="Center" />
+                                <Columns>
+                                    <asp:TemplateField HeaderText="Sr. No">
+                                        <ItemTemplate>
+                                            <%# Container.DataItemIndex + 1 %>
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
 
-                                <tbody>
-                                    <tr class="unread">
-                                        <td>
-                                            <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/user/avatar-1.jpg" alt="activity-user" />
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-1">Isabella Christensen</h6>
-                                            <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-muted">
-                                                <i class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                11 MAY 12:56
-                                            </h6>
-                                        </td>
-                                        <td>
-                                            <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                            <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="unread">
-                                        <td>
-                                            <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/user/avatar-2.jpg" alt="activity-user" />
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-1">Mathilde Andersen</h6>
-                                            <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-muted">
-                                                <i class="fas fa-circle text-danger text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                11 MAY 10:35
-                                            </h6>
-                                        </td>
-                                        <td>
-                                            <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                            <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="unread">
-                                        <td>
-                                            <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/user/avatar-3.jpg" alt="activity-user" />
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-1">Karla Sorensen</h6>
-                                            <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-muted">
-                                                <i class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                9 MAY 17:38
-                                            </h6>
-                                        </td>
-                                        <td>
-                                            <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                            <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="unread">
-                                        <td>
-                                            <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/user/avatar-1.jpg" alt="activity-user" />
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-1">Ida Jorgensen</h6>
-                                            <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-muted f-w-300">
-                                                <i class="fas fa-circle text-danger text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                19 MAY 12:56
-                                            </h6>
-                                        </td>
-                                        <td>
-                                            <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                            <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
-                                        </td>
-                                    </tr>
-                                    <tr class="unread">
-                                        <td>
-                                            <img class="rounded-full max-w-10" style="width: 40px" src="../assets/images/user/avatar-2.jpg" alt="activity-user" />
-                                        </td>
-                                        <td>
-                                            <h6 class="mb-1">Albert Andersen</h6>
-                                            <p class="m-0">Lorem Ipsum is simply dummy text of…</p>
-                                        </td>
-                                        <td>
-                                            <h6 class="text-muted">
-                                                <i class="fas fa-circle text-success text-[10px] ltr:mr-4 rtl:ml-4"></i>
-                                                21 July 12:56
-                                            </h6>
-                                        </td>
-                                        <td>
-                                            <a href="#!" class="badge bg-theme-bg-2 text-white text-[12px] mx-2">Reject</a>
-                                            <a href="#!" class="badge bg-theme-bg-1 text-white text-[12px]">Approve</a>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
+                                    <asp:BoundField DataField="BookingDate" HeaderText="Booking Date"
+                                        DataFormatString="{0:dd-MM-yyyy}" />
+
+                                    <asp:BoundField DataField="GuestName" HeaderText="Guest Name" />
+                                    <asp:BoundField DataField="RoomType" HeaderText="Room Type" />
+                                    <asp:BoundField DataField="CheckInDate" HeaderText="Check In"
+                                        DataFormatString="{0:dd-MM-yyyy}" />
+                                    <asp:BoundField DataField="BookingStatus" HeaderText="Status" />
+                                </Columns>
+
+                            </asp:GridView>
+
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
 
+
+            <div class="w-full flex flex-col lg:flex-row gap-6 mt-6">
+
+                <!-- Today's Arrival -->
+                <div class="flex-1">
+                    <div class="card table-card w-full">
+                        <div class="card-header">
+                            <h5>Today's Arrival</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="overflow-x-auto p-2">
+                                <asp:GridView
+                                    ID="GridViewArrivals"
+                                    runat="server"
+                                    AutoGenerateColumns="False"
+                                    CssClass="table table-bordered table-striped"
+                                    AllowPaging="True"
+                                    PageSize="10"
+                                    DataKeyNames="BookingId"
+                                    EmptyDataText="No Data Available."
+                                    ShowHeaderWhenEmpty="True"
+                                    OnPageIndexChanging="gvAllBookings_PageIndexChanging">
+                                    <HeaderStyle BackColor="#d0d6dd"
+                                        ForeColor="#111"
+                                        Font-Bold="true"
+                                        HorizontalAlign="Center" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Sr. No">
+                                            <ItemTemplate>
+                                                <%# Container.DataItemIndex + 1 %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="GuestName" HeaderText="Guest Name" />
+                                        <asp:BoundField DataField="RoomType" HeaderText="Room Type" />
+                                        <asp:BoundField DataField="GuestPhone" HeaderText="Contact" />
+                                        <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" />
+                                        <asp:BoundField DataField="BookingStatus" HeaderText="Payment Status" />
+                                    </Columns>
+                                </asp:GridView>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Today's Departures -->
+                <div class="flex-1">
+                    <div class="card table-card w-full">
+                        <div class="card-header">
+                            <h5>Today's Departures</h5>
+                        </div>
+                        <div class="card-body">
+                            <div class="overflow-x-auto p-2">
+                                <asp:GridView
+                                    ID="GridViewDepartures"
+                                    runat="server"
+                                    AutoGenerateColumns="False"
+                                    CssClass="table table-bordered table-striped"
+                                    AllowPaging="True"
+                                    PageSize="10"
+                                    DataKeyNames="BookingId"
+                                    EmptyDataText="No Data Available."
+                                    ShowHeaderWhenEmpty="True"
+                                    OnPageIndexChanging="gvAllBookings_PageIndexChanging"
+                                    OnRowCommand="GridView1_RowCommand"
+                                    OnRowDataBound="GridView1_RowDataBound">
+                                    <HeaderStyle BackColor="#d0d6dd"
+                                        ForeColor="#111"
+                                        Font-Bold="true"
+                                        HorizontalAlign="Center" />
+                                    <Columns>
+                                        <asp:TemplateField HeaderText="Sr. No">
+                                            <ItemTemplate>
+                                                <%# Container.DataItemIndex + 1 %>
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:BoundField DataField="GuestName" HeaderText="Guest Name" />
+                                        <asp:BoundField DataField="RoomType" HeaderText="Room Type" />
+                                        <asp:BoundField DataField="TotalAmount" HeaderText="Total Amount" />
+                                        <asp:BoundField DataField="RemainingAmount" HeaderText="Pending Amount" />
+                                        <asp:TemplateField HeaderText="Action">
+                                            <ItemTemplate>
+                                                <asp:Button ID="btnCollect"
+                                                    runat="server"
+                                                    Text="Collect Payment"
+                                                    CommandName="Collect"
+                                                    CommandArgument='<%# Eval("BookingID") %>' />
+                                            </ItemTemplate>
+                                        </asp:TemplateField>
+                                    </Columns>
+                                </asp:GridView>
+
+                                    <asp:Panel ID="pnlOverlay" runat="server" CssClass="popup-overlay" Visible="false"></asp:Panel>
+                                <asp:Panel ID="pnlPayment" runat="server" Visible="false" CssClass="popup">
+
+                                    <asp:HiddenField ID="hfBookingID" runat="server" />
+
+                                    <h3>Collect Payment</h3>
+
+                                    Total Amount:
+    <asp:Label ID="lblTotal" runat="server"></asp:Label>
+                                    <br />
+
+                                    Paid Amount:
+    <asp:Label ID="lblPaid" runat="server"></asp:Label>
+                                    <br />
+
+                                    Enter Payment:
+    <asp:TextBox ID="txtPayment" runat="server"></asp:TextBox> 
+                                    <br />
+                                    <br />
+
+                                    <asp:Button ID="btnSavePayment"
+                                        runat="server" 
+                                        Text="Save"
+                                        OnClick="btnSavePayment_Click" />
+
+                                    <asp:Button ID="btnClose"
+                                        runat="server"
+                                        Text="Close"
+                                        onclick="btnClose_Click" />
+
+                                </asp:Panel>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
     </div>
     <!-- [ Main Content ] end -->
 
