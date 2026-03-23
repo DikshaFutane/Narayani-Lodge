@@ -1,16 +1,119 @@
-﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NarayaniLodge._Default" %>
+﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master"
+    AutoEventWireup="true" CodeFile="Default.aspx.cs" Inherits="NarayaniLodge._Default" %>
 
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <%--    <main>--%>
     <section class="hero-section">
-        <div class="container">
+        <div class="container m-3">
             <div class="row">
                 <div class="col-lg-6">
                     <div class="hero-text">
                         <h1>Narayani Luxury Lodge</h1>
                         <p>A perfect place to relax with well-furnished rooms and warm hospitality.</p>
                         <a href="Rooms.aspx" class="primary-btn">Explore Rooms</a>
+                    </div>
+                </div>
+                <div class="col-xl-4 col-lg-5 offset-xl-2 offset-lg-1">
+                    <div class="booking-form">
+                        <h3>Booking Your Room</h3>
+
+                        <div class="check-date">
+                            <label>Check In:</label>
+                            <input type="text" class="date-input" id="datein" runat="server">
+                            <i class="icon_calendar"></i>
+
+                            <asp:RequiredFieldValidator
+                                ID="rfvCheckIn"
+                                runat="server"
+                                ControlToValidate="datein"
+                                ErrorMessage="Select Check-In Date"
+                                ForeColor="Red"
+                                Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        </div>
+
+                        <div class="check-date">
+                            <label>Check Out:</label>
+                            <input type="text" class="date-input" id="dateout" runat="server">
+                            <i class="icon_calendar"></i>
+
+                            <asp:RequiredFieldValidator
+                                ID="rfvCheckOut"
+                                runat="server"
+                                ControlToValidate="dateout"
+                                ErrorMessage="Select Check-Out Date"
+                                ForeColor="Red"
+                                Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        </div>
+
+                        <div class="select-option">
+                            <label>Guests:</label>
+         <asp:DropDownList ID="guest" runat="server" AutoPostBack="true" OnSelectedIndexChanged="guest_SelectedIndexChanged">
+    <asp:ListItem Text="Select Guests" Value="" />
+    <asp:ListItem Text="1 Adult" Value="1A" />
+    <asp:ListItem Text="2 Adults" Value="2A" />
+    <asp:ListItem Text="2 Adults, 1 Child" Value="2A1C" />
+    <asp:ListItem Text="2 Adults, 2 Children" Value="2A2C" />
+    <asp:ListItem Text="3 Adults" Value="3A" />
+    <asp:ListItem Text="3 Adults, 1 Child" Value="3A1C" />
+</asp:DropDownList>
+
+                            <asp:RequiredFieldValidator
+                                ID="rfvGuest"
+                                runat="server"
+                                ControlToValidate="guest"
+                                InitialValue=""
+                                ErrorMessage="Select Guests"
+                                ForeColor="Red"
+                                Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        </div>
+
+                        <div class="select-option">
+                            <label>Room Type:</label>
+                            <select id="roomtype" runat="server">
+                                <option value="">Select Room Type</option>
+                                <option value="AC Room">AC Room</option>
+                                <option value="Non-AC Room">Non-AC Room</option>
+                            </select>
+
+                            <asp:RequiredFieldValidator
+                                ID="rfvRoomType"
+                                runat="server"
+                                ControlToValidate="roomtype"
+                                InitialValue=""
+                                ErrorMessage="Select Room Type"
+                                ForeColor="Red"
+                                Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        </div>
+
+                        <div class="check-date">
+                            <label>Room:</label>
+                            <input type="text" id="room" runat="server" ReadOnly>
+
+      
+                            <small style="color: gray;">Max 3 guests allowed per room</small>
+
+                            <asp:RequiredFieldValidator
+                                ID="rfvRoom"
+                                runat="server"
+                                ControlToValidate="room"
+                                InitialValue=""
+                                ErrorMessage="Select Number of Rooms"
+                                ForeColor="Red"
+                                Display="Dynamic">
+                            </asp:RequiredFieldValidator>
+                        </div>
+
+
+                        <button type="button" runat="server"
+                            onserverclick="btnCheck_Click1">
+                            Check Availability
+                        </button>
+
                     </div>
                 </div>
             </div>
@@ -173,7 +276,7 @@
     </section>
     <!-- Home Room Section End -->
 
-        <!-- Blog Section Begin -->
+    <!-- Blog Section Begin -->
     <section class="blog-section spad">
         <div class="container">
             <div class="row">
@@ -208,7 +311,7 @@
                         <div class="bi-text">
                             <span class="b-tag">Panchganga Ghat</span>
                             <h4><a href="#">A Peaceful Holy Ghat With Spiritual Significance</a></h4>
-                            <div class="b-time"><i class="icon_pin_alt"></i> 2 km away</div>
+                            <div class="b-time"><i class="icon_pin_alt"></i>2 km away</div>
                         </div>
                     </div>
                 </div>
@@ -226,7 +329,7 @@
                         <div class="bi-text">
                             <span class="b-tag">Panhala Fort</span>
                             <h4><a href="#">A Famous Hill Fort Known For History And Nature.</a></h4>
-                            <div class="b-time"><i class="icon_pin_alt"></i> 20 km away</div>
+                            <div class="b-time"><i class="icon_pin_alt"></i>20 km away</div>
                         </div>
                     </div>
                 </div>
@@ -236,22 +339,23 @@
     <!-- Blog Section End -->
 
     <%--   </main>--%>
-     <script>
-     document.addEventListener("DOMContentLoaded", function () {
-         const cards = document.querySelectorAll(".place-card");
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const cards = document.querySelectorAll(".place-card");
 
-         const observer = new IntersectionObserver((entries) => {
-             entries.forEach((entry, index) => {
-                 if (entry.isIntersecting) {
-                     setTimeout(() => {
-                         entry.target.classList.add("show");
-                     }, index * 150); // delay animation
-                     observer.unobserve(entry.target);
-                 }
-             });
-         }, { threshold: 0.2 });
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach((entry, index) => {
+                    if (entry.isIntersecting) {
+                        setTimeout(() => {
+                            entry.target.classList.add("show");
+                        }, index * 150); // delay animation
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.2 });
 
-         cards.forEach(card => observer.observe(card));
-     });
-     </script>
+            cards.forEach(card => observer.observe(card));
+        });
+        
+    </script>
 </asp:Content>
