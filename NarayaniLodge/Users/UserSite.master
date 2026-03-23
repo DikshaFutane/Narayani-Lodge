@@ -1,0 +1,302 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="UserSite.master.cs" Inherits="Users_UserSite" %>
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8">
+    <meta name="description" content="Sona Template">
+    <meta name="keywords" content="Sona, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title><%: Page.Title %> - Narayani Lodge</title>
+    <link href="img/narayanilodgelogo.png" rel="shortcut icon" type="image/x-icon" />
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css?family=Lora:400,700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Cabin:400,500,600,700&display=swap" rel="stylesheet">
+
+    <!-- Css Styles -->
+    <link rel="stylesheet" href="../css/bootstrap.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/font-awesome.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/elegant-icons.css" type="text/css">
+    <link rel="stylesheet" href="../css/flaticon.css" type="text/css">
+    <link rel="stylesheet" href="../css/owl.carousel.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/nice-select.css" type="text/css">
+    <link rel="stylesheet" href="../css/jquery-ui.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/magnific-popup.css" type="text/css">
+    <link rel="stylesheet" href="../css/slicknav.min.css" type="text/css">
+    <link rel="stylesheet" href="../css/style.css" type="text/css">
+    <link rel="stylesheet" href="Content/Site.css" type="text/css" />
+    <link rel="stylesheet" href="../css/style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        /* ================= NAV MENU ================= */
+
+.nav-menu ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-menu ul li {
+    position: relative;
+}
+
+.nav-menu ul li a {
+    text-decoration: none;
+    font-weight: 500;
+    color: #222;
+}
+
+
+/* ================= PROFILE DROPDOWN ================= */
+
+.profile-dropdown {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: relative;
+}
+
+
+/* Dropdown Box */
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 38px;
+    right: -5px;
+    background: #fff;
+    min-width: 200px;
+    border-radius: 6px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+    overflow: hidden;
+    z-index: 888;
+    padding:  0;
+}
+
+
+/* Show Dropdown */
+
+.profile-dropdown.active .dropdown-content {
+    display: block;
+}
+
+
+/* ================= DROPDOWN LINKS ================= */
+.dropdown-content a {
+    display: block;
+    padding: 0;      /* remove space inside */
+    margin: 0;       /* remove space outside */
+    line-height: 0px; /* control text height */
+    font-size: 15px;
+    color: #333;
+    text-decoration: none;
+}
+
+
+/* Remove Theme Golden Underline */
+
+.dropdown-content a:after {
+    display: none !important;
+}
+
+/* Icon spacing */
+/*
+.dropdown-content i {
+    width: 16px;
+}*/
+
+
+/* Logout color */
+
+.dropdown-content a:last-child {
+    color: red;
+}
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width:768px) {
+
+    .nav-menu {
+        display: none;
+    }
+
+    .canvas-open {
+        display: block;
+    }
+
+}
+    </style>
+ <asp:ContentPlaceHolder ID="head" runat="server">
+ </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form runat="server">
+        <%--<asp:ScriptManager ID="ScriptManager1" runat="server" />--%>
+
+        <!-- Page Preloder -->
+        <div id="preloder">
+            <div class="loader"></div>
+        </div>
+
+        <!-- Offcanvas Menu Section Begin -->
+        <div class="offcanvas-menu-overlay"></div>
+        <%--<div class="canvas-open">
+            <i class="icon_menu"></i>
+        </div>--%>
+        <div class="offcanvas-menu-wrapper">
+            <div class="canvas-close">
+                <i class="icon_close"></i>
+            </div>
+
+            <div class="header-configure-area">
+                <a href="#" class="bk-btn">Booking Now</a>
+            </div>
+            <nav class="mainmenu mobile-menu">
+                <ul>
+                    <li><a href="Default.aspx">Home</a></li>
+                    <li><a href="Mybookings.aspx">My Bookings</a></li>
+                    <li><a href="ViewProfile.aspx">My Profile</a></li>
+                    <li><a href="../Default.aspx">Logout</a></li>
+
+                </ul>
+            </nav>
+            <div id="mobile-menu-wrap"></div>
+            <div class="top-social">
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-instagram"></i></a>
+            </div>
+            <ul class="top-widget">
+                <li><i class="fa fa-phone"></i>(+91) 7218423323</li>
+                <li><i class="fa fa-envelope"></i>naratawadekark@gmail.com</li>
+            </ul>
+        </div>
+        <!-- Offcanvas Menu Section End -->
+
+        <!-- Header Section Begin -->
+        <header class="header-section">
+            <div class="menu-item">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-2">
+                            <div class="logo">
+                                <a href="Default.aspx">
+                                    <img src="../img/naraynilogo.png" height="60" />
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="nav-menu d-flex justify-content-end align-items-center">
+                                <nav class="mainmenu">
+                                    <ul class="d-flex align-items-center">
+
+                                        <li><a href="Default.aspx">Home</a></li>
+
+                                        <li><a href="Mybookings.aspx">My Bookings</a></li>
+
+                                        <li class="profile-dropdown" id="profileDropdown">
+
+                                            <i class="fa fa-user"></i>
+
+                                            <asp:Label ID="lblUserName" runat="server"></asp:Label>
+
+                                            <i class="fa fa-caret-down"></i>
+
+                                            <div class="dropdown-content">
+
+                                                <a href="ViewProfile.aspx">
+                                                    <i class="fa fa-user me-2"></i>My Profile
+                                                </a>
+
+                                                <a href="../ChangePassword.aspx">
+                                                    <i class="fa fa-lock me-2"></i>Change Password
+                                                </a>
+
+                                                <a href="../Default.aspx" style="color: red;">
+                                                    <i class="fa fa-sign-out me-2"></i>Logout
+                                                </a>
+
+                                            </div>
+
+                                        </li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Header End -->
+
+        <div class="container-fluid body-content">
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+            <hr />
+        </div>
+        <!-- Footer Section Begin -->
+        <footer class="footer-section">
+            <div class="copyright-option">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-lg-5 mt-0">
+                            <div class="co-text">
+                                <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    Narayani Lodge. All rights reserved.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+        <!-- Footer Section End -->
+        <script>
+
+            document.addEventListener("DOMContentLoaded", function () {
+
+                     let profile = document.getElementById("profileDropdown");
+
+                     profile.addEventListener("click", function (e) {
+
+                         e.stopPropagation();
+
+                         this.classList.toggle("active");
+
+                     });
+
+                     document.addEventListener("click", function () {
+
+                         profile.classList.remove("active");
+
+                     });
+
+                 });
+
+        </script>
+        <!-- Js Plugins -->
+        <script src="../js/jquery-3.3.1.min.js"></script>
+        <script src="../js/bootstrap.min.js"></script>
+        <script src="../js/jquery.magnific-popup.min.js"></script>
+        <script src="../js/jquery.nice-select.min.js"></script>
+        <script src="../js/jquery-ui.min.js"></script>
+        <script src="../js/jquery.slicknav.js"></script>
+        <script src="../js/owl.carousel.min.js"></script>
+        <script src="../js/main.js"></script>
+    </form>
+    <asp:PlaceHolder runat="server">
+        <%: Scripts.Render("~/Scripts/bootstrap.js") %>
+    </asp:PlaceHolder>
+
+</body>
+</html>
