@@ -32,31 +32,61 @@
 /* Template default CSS
 /*----------------------------------------*/
 
-/* Logo text styling */
-.logo {
-	line-height: 1; /* VERY IMPORTANT */
+
+/* Dropdown container */
+/* Dropdown container */
+.mainmenu .dropdown {
+	position: relative;
 }
 
-	.logo .main {
-		font-family: 'Lora', serif;
-		font-size: 32px;
-		font-weight: 500;
-		color: #dfa974; /* exact theme color */
-		letter-spacing: 1px;
+/* Overlay */
+.dropdown-overlay {
+	display: none;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: rgba(0,0,0,0.2); /* semi-transparent dark */
+	z-index: 1040; /* behind dropdown but above other content */
+}
+
+/* Dropdown content */
+.mainmenu .dropdown .dropdown-content {
+	display: none;
+	min-width: 200px;
+	right: 0;
+	top: 100%;
+	z-index: 1050; /* above overlay */
+}
+
+	/* Dropdown items */
+	.mainmenu .dropdown .dropdown-content a {
 		display: block;
-		margin-bottom: 2px; /* control spacing */
+		padding: 10px 20px;
+		color: #333;
+		text-decoration: none;
+		transition: background 0.2s;
 	}
 
-	.logo .sub {
-		font-family: 'Cabin', sans-serif;
-		font-size: 15px;
-		color: #888888;
-		letter-spacing: 0.5px;
-		display: block;
-		margin-top: 0; /* remove gap */
-		line-height: 1.2;
-	}
+		.mainmenu .dropdown .dropdown-content a:hover {
+			background-color: #f1f1f1;
+		}
 
+/* Show dropdown + overlay on hover */
+.mainmenu .dropdown:hover .dropdown-content,
+.mainmenu .dropdown:hover .dropdown-overlay {
+	display: block;
+}
+
+/* Caret icon alignment */
+.dropbtn i.fa-caret-down {
+	font-size: 0.75rem;
+}
+/* Logo text styling */
+.logo {
+	padding: 0;
+}
 
 html, body {
 	height: 100%;
@@ -341,16 +371,7 @@ ul, ol {
 	color: #19191a;
 	margin-left: 15px;
 }
-.top-nav .tn-right .bk-btn {
-	display: inline-block;
-	font-size: 13px;
-	font-weight: 700;
-	padding: 16px 28px 15px;
-	background: #dfa974;
-	color: #ffffff;
-	text-transform: uppercase;
-	letter-spacing: 2px;
-}
+
 .top-nav .tn-right .language-option {
 	display: inline-block;
 	margin-left: 30px;
@@ -411,9 +432,11 @@ ul, ol {
 .menu-item {
 	position: relative;
 	z-index: 9;
+	box-shadow: 0px 12px 15px rgba(36, 11, 12, 0.05);
 }
 .menu-item .logo {
-	padding: 25px 0;
+	margin-top:15px;
+	padding: 0;
 }
 .menu-item .logo a {
 	display: inline-block;
@@ -511,6 +534,17 @@ ul, ol {
 	color: #19191a;
 	cursor: pointer;
 }
+
+.menu-item .nav-menu .mainmenu .bk-btn {
+	display: inline-block;
+	font-size: 13px;
+	font-weight: 700;
+	padding: 16px 28px 15px;
+	background: #dfa974;
+	color: #ffffff;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+}
 .canvas-open {
 	display: none;
 }
@@ -554,17 +588,17 @@ ul, ol {
 	color: #19191a;
 	margin-bottom: 36px;
 }
-.booking-form form .check-date {
+.booking-form  .check-date {
 	position: relative;
 	margin-bottom: 15px;
 }
-.booking-form form .check-date label {
+.booking-form  .check-date label {
 	font-size: 14px;
 	color: #707079;
 	display: block;
 	margin-bottom: 10px;
 }
-.booking-form form .check-date input {
+.booking-form  .check-date input {
 	width: 100%;
 	height: 50px;
 	border: 1px solid #ebebeb;
@@ -575,22 +609,22 @@ ul, ol {
 	font-weight: 500;
 	padding-left: 20px;
 }
-.booking-form form .check-date i {
+.booking-form  .check-date i {
 	color: #dfa974;
 	position: absolute;
 	right: 18px;
 	bottom: 17px;
 }
-.booking-form form .select-option {
+.booking-form  .select-option {
 	margin-bottom: 15px;
 }
-.booking-form form .select-option label {
+.booking-form  .select-option label {
 	font-size: 14px;
 	color: #707079;
 	display: block;
 	margin-bottom: 10px;
 }
-.booking-form form .select-option .nice-select {
+.booking-form  .select-option .nice-select {
 	border-radius: 2px;
 	border: 1px solid #ebebeb;
 	height: 50px;
@@ -600,7 +634,7 @@ ul, ol {
 	width: 100%;
 	float: none;
 }
-.booking-form form .select-option .nice-select:after {
+.booking-form .select-option .nice-select:after {
 	border-bottom: 2px solid #dfa974;
 	border-right: 2px solid #dfa974;
 	height: 10px;
@@ -609,17 +643,17 @@ ul, ol {
 	width: 10px;
 	top: 36%;
 }
-.booking-form form .select-option .nice-select span {
+.booking-form  .select-option .nice-select span {
 	font-size: 16px;
 	color: #19191a;
 	text-transform: uppercase;
 	font-weight: 500;
 }
-.booking-form form .select-option .nice-select .list {
+.booking-form .select-option .nice-select .list {
 	margin-top: 0;
 	width: 100%;
 }
-.booking-form form button {
+.booking-form  button {
 	display: block;
 	font-size: 14px;
 	text-transform: uppercase;
@@ -993,122 +1027,145 @@ ul, ol {
 /*---------------------
   Footer Section
 -----------------------*/
-
 .footer-section {
 	background: #222736;
+	padding: 15px 0; /* reduced overall footer padding */
 }
-.footer-section .footer-text {
-	padding: 80px 0 30px;
-}
-.footer-section .footer-text .ft-about {
-	margin-bottom: 30px;
-}
-.footer-section .footer-text .ft-about .logo {
-	margin-bottom: 20px;
-}
-.footer-section .footer-text .ft-about .logo a {
-	display: inline-block;
-}
-.footer-section .footer-text .ft-about p {
-	color: #aaaab3;
-	margin-bottom: 20px;
-}
-.footer-section .footer-text .ft-about .fa-social a {
-	display: inline-block;
-	height: 40px;
-	width: 40px;
-	font-size: 16px;
-	line-height: 40px;
-	text-align: center;
-	color: #ffffff;
-	border: 1px solid #5A4D48;
-	border-radius: 50%;
-	-webkit-transition: all 0.3s;
-	-o-transition: all 0.3s;
-	transition: all 0.3s;
-	margin-right: 7px;
-}
-.footer-section .footer-text .ft-about .fa-social a:hover {
-	background: #dfa974;
-	border-color: #dfa974;
-}
-.footer-section .footer-text .ft-contact {
-	margin-bottom: 30px;
-}
-.footer-section .footer-text .ft-contact h6 {
-	font-size: 14px;
-	color: #dfa974;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 3px;
-	font-family: "Cabin", sans-serif;
-	margin-bottom: 20px;
-}
-.footer-section .footer-text .ft-contact ul li {
-	font-size: 16px;
-	color: #aaaab3;
-	line-height: 32px;
-	list-style: none;
-}
-.footer-section .footer-text .ft-newslatter h6 {
-	font-size: 14px;
-	color: #dfa974;
-	text-transform: uppercase;
-	font-weight: 700;
-	letter-spacing: 3px;
-	font-family: "Cabin", sans-serif;
-	margin-bottom: 20px;
-}
-.footer-section .footer-text .ft-newslatter p {
-	color: #aaaab3;
-	margin-bottom: 20px;
-}
-.footer-section .footer-text .ft-newslatter .fn-form {
-	position: relative;
-}
-.footer-section .footer-text .ft-newslatter .fn-form input {
-	width: 100%;
-	height: 50px;
-	border-radius: 2px;
-	background: #393D4A;
-	border: none;
-	padding-left: 20px;
-	font-size: 16px;
-	color: #707079;
-}
-.footer-section .footer-text .ft-newslatter .fn-form button {
-	position: absolute;
-	right: 0;
-	top: 0;
-	font-size: 16px;
-	background: #dfa974;
-	color: #ffffff;
-	padding: 0 16px;
-	height: 50px;
-	border: none;
-	border-radius: 0 2px 2px 0;
-}
-.footer-section .copyright-option {
-	background: rgba(16, 20, 31, 0.2);
-	padding: 20px 0;
-}
-.footer-section .copyright-option ul li {
-	list-style: none;
-	display: inline-block;
-	margin-right: 34px;
-}
-.footer-section .copyright-option ul li:last-child {
-	margin-right: 0;
-}
-.footer-section .copyright-option ul li a {
-	font-size: 16px;
-	color: #aaaab3;
-}
-.footer-section .copyright-option .co-text {
-	font-size: 16px;
-	color: #707079;
-	text-align: right;
-}
+
+	.footer-section .footer-text {
+		padding: 10px 15px; /* smaller padding */
+		padding-bottom: 5px;
+	}
+
+		.footer-section .footer-text .ft-about {
+			margin-bottom: 5px; /* smaller margin */
+		}
+
+			.footer-section .footer-text .ft-about .logo {
+				margin-bottom: 5px;
+			}
+
+				.footer-section .footer-text .ft-about .logo a {
+					display: inline-block;
+				}
+
+			.footer-section .footer-text .ft-about p {
+				color: #aaaab3;
+				margin-bottom: 5px;
+				font-size: 14px; /* slightly smaller text */
+			}
+
+			.footer-section .footer-text .ft-about .fa-social a {
+				display: inline-block;
+				height: 35px; /* smaller social icon */
+				width: 35px;
+				font-size: 14px;
+				line-height: 35px;
+				text-align: center;
+				color: #ffffff;
+				border: 1px solid #5A4D48;
+				border-radius: 50%;
+				-webkit-transition: all 0.3s;
+				-o-transition: all 0.3s;
+				transition: all 0.3s;
+				margin-right: 5px;
+			}
+
+				.footer-section .footer-text .ft-about .fa-social a:hover {
+					background: #dfa974;
+					border-color: #dfa974;
+				}
+
+		.footer-section .footer-text .ft-contact {
+			margin-bottom: 15px; /* smaller margin */
+		}
+
+			.footer-section .footer-text .ft-contact h6 {
+				font-size: 13px; /* smaller heading */
+				color: #dfa974;
+				text-transform: uppercase;
+				font-weight: 700;
+				letter-spacing: 2px;
+				font-family: "Cabin", sans-serif;
+				margin-bottom: 10px; /* smaller spacing */
+			}
+
+			.footer-section .footer-text .ft-contact ul li {
+				font-size: 14px; /* smaller list text */
+				color: #aaaab3;
+				line-height: 24px; /* tighter line spacing */
+				list-style: none;
+			}
+
+		.footer-section .footer-text .ft-newslatter h6 {
+			font-size: 13px;
+			color: #dfa974;
+			text-transform: uppercase;
+			font-weight: 700;
+			letter-spacing: 2px;
+			font-family: "Cabin", sans-serif;
+			margin-bottom: 10px;
+		}
+
+		.footer-section .footer-text .ft-newslatter p {
+			color: #aaaab3;
+			margin-bottom: 10px;
+			font-size: 14px;
+		}
+
+		.footer-section .footer-text .ft-newslatter .fn-form {
+			position: relative;
+		}
+
+			.footer-section .footer-text .ft-newslatter .fn-form input {
+				width: 100%;
+				height: 40px; /* smaller input box */
+				border-radius: 2px;
+				background: #393D4A;
+				border: none;
+				padding-left: 15px;
+				font-size: 14px;
+				color: #707079;
+			}
+
+			.footer-section .footer-text .ft-newslatter .fn-form button {
+				position: absolute;
+				right: 0;
+				top: 0;
+				font-size: 14px; /* smaller button text */
+				background: #dfa974;
+				color: #ffffff;
+				padding: 0 12px;
+				height: 40px; /* smaller button */
+				border: none;
+				border-radius: 0 2px 2px 0;
+			}
+
+	.footer-section .copyright-option {
+		background: rgba(16, 20, 31, 0.2);
+		/*padding: 10px 0;*/ /* smaller copyright padding */
+	}
+
+		.footer-section .copyright-option ul li {
+			list-style: none;
+			display: inline-block;
+			/*margin-right: 20px;*/ /* smaller spacing */
+		}
+
+			.footer-section .copyright-option ul li:last-child {
+				margin-right: 0;
+			}
+
+			.footer-section .copyright-option ul li a {
+				font-size: 14px; /* smaller link text */
+				color: #aaaab3;
+			}
+
+		.footer-section .copyright-option .co-text {
+			font-size: 14px; /* smaller copyright text */
+			color: #707079;
+			/*text-align: right;*/
+		}
 /* --------------------------------- Other Pages Styles ----------------------------------- */
 
 /*---------------------

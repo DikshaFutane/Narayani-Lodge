@@ -12,22 +12,184 @@ File: style.css
 1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
+
+/*
+.logo {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    color: #0d6efd;
+    margin-bottom: 15px;
+}*/
+
+
+/* ========================================
+   COMMON CARD STYLE
+======================================== */
+
+.row {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+.profile-card,
+.account-card,
+.password-card {
+    background-color: var(--bs-body-bg);
+    color: var(--bs-body-color);
+    border: 1px solid var(--bs-border-color);
+    border-radius: 12px;
+    padding: 20px;
+}
+
+/* ========================================
+   PROFILE CARD
+======================================== */
+
+.profile-card {
+    flex: 0.9;
+    min-width: 280px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.profile-img {
+    width: 130px;
+    height: 130px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #d4af37; /* gold stays same */
+    display: block;
+    margin: 0 auto 15px auto;
+}
+
+.profile-card h4 {
+    font-size: 20px;
+    margin: 10px 0 5px;
+    font-weight: 600;
+    color: inherit; /* important */
+}
+
+.role {
+    background-color: var(--bs-secondary-bg);
+    color: inherit;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    display: inline-block;
+    margin-bottom: 15px;
+}
+
+.info {
+    margin: 6px 0;
+    font-size: 14px;
+    color: inherit;
+}
+
+/* Status Badge */
+
+.status-active {
+    background-color: #d1e7dd;
+    color: #0f5132;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* ========================================
+   ACCOUNT DETAILS
+======================================== */
+
+.account-card {
+    flex: 2;
+    min-width: 300px;
+}
+
+    .account-card h4 {
+        font-weight: 600;
+        margin-bottom: 18px;
+        color: inherit;
+    }
+
+.detail-row {
+    display: grid;
+    grid-template-columns: 200px 1fr;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--bs-border-color);
+    align-items: center;
+}
+
+.label {
+    font-weight: 600;
+}
+
+.value {
+    padding-left: 20px;
+}
+
+.btnadmin {
+    display: inline-block;
+    width: 100%;
+    padding: 10px 10px;
+    font-size: 14px;
+    font-weight: 600;
+    border-radius: 6px;
+    margin-top:2px;
+    border: 1px solid var(--bs-primary);
+    background-color: cornflowerblue;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+    /* Disabled */
+    .btnadmin:disabled {
+        opacity: 0.6;
+        cursor: not-allowed;
+    }
+
 *,
 ::before,
 ::after {
-  box-sizing: border-box; /* 1 */
-  border-width: 0; /* 2 */
-  border-style: solid; /* 2 */
-  border-color: #e5e7eb; /* 2 */
+    box-sizing: border-box; /* 1 */
+    border-width: 0; /* 2 */
+    border-style: solid; /* 2 */
+    border-color: #e5e7eb; /* 2 */
 }
 ::before,
 ::after {
   --tw-content: '';
 }
+/*Style For Gridview*/
+/* Force clear vertical & horizontal borders */
+.table th,
+.table td {
+    border: 1px solid #cfd4da !important; /* darker than default */
+    white-space: nowrap;
+    vertical-align: middle;
+}
+/* Darker table header */
+.table thead th {
+    background-color: #e1e5ea; /* darker than before */
+    color: #222;
+    font-weight: 700;
+    border: 1px solid #bfc5cc !important;
+}
+
+/* Body cell borders */
+.table td {
+    border: 1px solid #cfd4da !important;
+}
+
 /*style for logo*/
-.logo {
+/*.logo {
+    margin-top:5px;
     font-family: 'Playfair Display', serif;
     text-align: center;
+    line-height:20px;
 }
 
     .logo .main {
@@ -41,7 +203,9 @@ File: style.css
         font-size: 13px;
         letter-spacing: 3px;
         color: grey;
-    }
+        margin-top:0px;
+
+    }*/
 
 /*
 1. Use a consistent sensible line-height in all browsers.
