@@ -33,8 +33,6 @@
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
 </head>
 <body>
     <form runat="server">
@@ -54,9 +52,10 @@
             <div class="canvas-close">
                 <i class="icon_close"></i>
             </div>
-            
+
             <div class="header-configure-area">
-                <a href="BookNow.aspx" class="bk-btn">Booking Now</a>
+                <a href="Authentication/Signup.aspx" class="bk-btn">Booking Now</a>
+                <a href="Authentication/Signup.aspx" class="bk-btn mt-2">Sign in</a>
             </div>
             <nav class="mainmenu mobile-menu">
                 <ul>
@@ -90,7 +89,7 @@
 
         <!-- Header Section Begin -->
         <header class="header-section">
-            <div class="top-nav">
+            <%--<div class="top-nav">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-6">
@@ -106,20 +105,18 @@
                                     <a href="#"><i class="fa fa-twitter"></i></a>
                                     <a href="#"><i class="fa fa-instagram"></i></a>
                                 </div>
-                                <a href="BookNow.aspx" class="bk-btn">Booking Now</a>
-                            </div>
+                                                           </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </div>--%>
             <div class="menu-item">
                 <div class="container-fluid">
                     <div class="row">
                         <div class="col-lg-2">
                             <div class="logo">
                                 <a href="Default.aspx">
-                                        <span class="main">NARAYANI</span>
-                                        <span class="sub">Luxury Lodge</span>
+                                    <img src="img/naraynilogo.png" height="50" width="90" />
                                 </a>
                             </div>
                         </div>
@@ -132,6 +129,8 @@
                                         <li><a href="About.aspx">About Us</a></li>
                                         <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
                                         <li><a href="Contact.aspx">Contact</a></li>
+                                        <a href="Authentication/Signup.aspx" class="bk-btn">Book Now</a>
+                                        <a href="Authentication/Signup.aspx" class="bk-btn">Sign in</a>
                                     </ul>
                                 </nav>
                             </div>
@@ -146,82 +145,89 @@
             <asp:ContentPlaceHolder ID="MainContent" runat="server">
             </asp:ContentPlaceHolder>
             <hr />
-            </div>
-            <!-- Footer Section Begin -->
-            <footer class="footer-section">
-                <div class="container  mt-0">
-                    <div class="footer-text">
-                        <div class="row">
-                            <div class="col-lg-4">
-                                <div class="ft-about">
-                                    <div class="logo">
-                                        <a href="#">
-                                            <div class="logo ft-contact">
-                                                <span class="main">NARAYANI</span>
-                                                <span class="sub">Luxury Lodge</span>
-                                            </div>
-                                        </a>
-                                    </div>
-                                    <p class="mt-1">A cozy stay in the heart of Kolhapur.</p>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 offset-lg-1">
-                                <div class="ft-contact">
-                                    <h6>Contact Us</h6>
-                                    <ul>
-                                        <li>(+91) 7218423323</li>
-                                        <li>naratawadekark@gmail.com</li>
-                                        <li>Tarabai Road, Tatakadil Talim Chowk, Kolhapur</li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 offset-lg-1">
-                                <div class="ft-contact">
-                                    <h6>Pages</h6>
-                                    <div class="nav-menu">
-                                    <nav class="mainmenu">
-                                    <ul>
-                                        <li><a href="Default.aspx">Home</a></li>
-                                        <li><a href="#">Rooms</a></li>
-                                        <li><a href="About.aspx">About Us</a></li>
-                                        <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
-                                        <li><a href="Contact.aspx">Contact</a></li>
-                                        <li><a href="BookNow.aspx">Book Now</a></li>
-                                    </ul>
-                                   </nav>
+        </div>
+        <!-- Footer Section Begin -->
+        <footer class="footer-section">
+            <div class="container  mt-0">
+                <div class="footer-text">
+                    <div class="row">
+                        <div class="col-lg-4">
+                            <div class="ft-about">
+                                <div class="logo">
+                                    <a href="#">
+                                        <div class="logo ft-contact">
+                                            <a href="Default.aspx"> <img src="img/naraynilogo.png" height="50" width="90" />
+                                            </a>
                                         </div>
+                                    </a>
+                                </div>
+                                <p class="mt-1">A cozy stay in the heart of Kolhapur.</p>
+                                <div class="fa-social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1">
+                            <div class="ft-contact">
+                                <h6>Contact Us</h6>
+                                <ul>
+                                    <li>(+91) 7218423323</li>
+                                    <li>naratawadekark@gmail.com</li>
+                                    <li>Tarabai Road, Tatakadil Talim Chowk, Kolhapur</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1">
+                            <div class="ft-contact">
+                                <h6>Pages</h6>
+                                <div class="nav-menu">
+                                    <nav class="mainmenu">
+                                        <ul>
+                                            <li><a href="Default.aspx">Home</a></li>
+                                            <li><a href="Rooms.aspx">Rooms</a></li>
+                                            <li><a href="About.aspx">About Us</a></li>
+                                            <li><a href="PlacesNearBy.aspx">Places Nearby</a></li>
+                                            <li><a href="Contact.aspx">Contact</a></li>
+                                            <li><a href="Authentication/Signup.aspx">Book Now</a></li>
+                                        </ul>
+                                    </nav>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="copyright-option">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-5 mt-0">
-                                <div class="co-text">
-                                    <p>
-                                        Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                        Narayani Luxury Lodge. All rights reserved.
-                                    </p>
-                                </div>
+            </div>
+            <div class="copyright-option">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-4"></div>
+                        <div class="col-6 mt-0">
+                            <div class="co-text">
+                                <p>
+                                    Copyright &copy;<script>document.write(new Date().getFullYear());</script>
+                                    Narayani Lodge. All rights reserved.
+                                </p>
                             </div>
                         </div>
+                        <div class="col-3"></div>
                     </div>
                 </div>
-            </footer>
-            <!-- Footer Section End -->
+            </div>
+        </footer>
+        <!-- Footer Section End -->
 
-  
-            <!-- Js Plugins -->
-            <script src="js/jquery-3.3.1.min.js"></script>
-            <script src="js/bootstrap.min.js"></script>
-            <script src="js/jquery.magnific-popup.min.js"></script>
-            <script src="js/jquery.nice-select.min.js"></script>
-            <script src="js/jquery-ui.min.js"></script>
-            <script src="js/jquery.slicknav.js"></script>
-            <script src="js/owl.carousel.min.js"></script>
-            <script src="js/main.js"></script>
+
+        <!-- Js Plugins -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/bootstrap.min.js"></script>
+        <script src="js/jquery.magnific-popup.min.js"></script>
+        <script src="js/jquery.nice-select.min.js"></script>
+        <script src="js/jquery-ui.min.js"></script>
+        <script src="js/jquery.slicknav.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <script src="js/main.js"></script>
     </form>
     <asp:PlaceHolder runat="server">
         <%: Scripts.Render("~/Scripts/bootstrap.js") %>
