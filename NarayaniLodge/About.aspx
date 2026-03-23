@@ -3,7 +3,7 @@
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
     <main aria-labelledby="title">
         <section class="aboutus-page-section spad">
-        <div class="container">
+        <div class="container mt-4">
             <div class="about-page-text">
                 <div class="row">
                     <div class="col-lg-6">
