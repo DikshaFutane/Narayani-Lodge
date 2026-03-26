@@ -1,81 +1,44 @@
-# 🏨 Narayani Lodge Management System
+# 🏨 Narayani Lodge Website
 
-A responsive and user-friendly **Lodge Management Web Application** developed using ASP.NET, C#, SQL Server, HTML, CSS, and JavaScript.
-This system allows users to check room availability, send enquiries, and enables admin to manage bookings, customers, payments, and reports efficiently.
+## 📌 About Project
+This is a hotel booking website developed using ASP.NET and SQL Server.  
+Users can check room availability and send booking requests.  
+Admin can manage rooms, customers, payments, and reports.
 
 ---
 
 ## 🚀 Features
-
-### 👤 User Side
-
-* View available rooms
-* Check room availability
-* Send Booking Request
-* Send enquiry to hotel
-* Simple and clean UI
-* Cancel Booking
-* Download Invoice 
-
-### 🛠️ Admin Panel
-
-* Admin Login System
-* Manage Rooms (Add / Update / Delete)
-* View and manage bookings
-* Handle customer enquiries
-* Payment tracking system
-* Generate reports (PDF & Excel)
+- Room booking system  
+- Check room availability  
+- Admin dashboard  
+- Customer management  
+- Payment tracking  
+- Report generation  
 
 ---
 
-## ⚙️ Tech Stack
-
-* **Frontend:** HTML, CSS, Bootstrap,Tailwind CSS JavaScript
-* **Backend:** ASP.NET (C#)
-* **Database:** SQL Server
-* **Tools:** Visual Studio
+## 🛠 Technologies Used
+- HTML, CSS, JavaScript  
+- ASP.NET (C#)  
+- SQL Server  
 
 ---
 
-## 🌐 Live Demo
+## 📸 Screenshots
 
-🚧 Coming Soon...
-
----
-
-
-## 📂 Project Structure
-
-* `Admin/` → Admin panel pages
-* `User/` → User-side pages
-* `Database/` → SQL scripts
-* `Assets/` → Images, CSS, JS
+![Home](Images/homepage.png)  
+![Room](Images/room.png)  
+![Admin](Images/admin.png)  
+![Report](Images/report.png)  
 
 ---
 
-## 🔐 Security Note
-
-Sensitive information like API keys and passwords are not included in this repository.
-
----
-
-## 💡 Future Enhancements
-
-* Online payment integration
-* Email verification system
-* Mobile responsiveness improvements
-* Advanced reporting dashboard
+## ▶️ How to Run
+1. Open project in Visual Studio  
+2. Connect SQL Server database  
+3. Run project  
 
 ---
 
 ## 👩‍💻 Author
-
-**Diksha Futane**
-
----
-
-## ⭐ If you like this project
-
-Give it a ⭐ on GitHub and share it!
-
----
+Diksha Futane
