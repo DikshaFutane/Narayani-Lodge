@@ -28,7 +28,7 @@ Admin can manage rooms, customers, payments, and reports.
 
 ![Home](Images/homepage1.png)  
 ![Room](Images/room1.png) 
-![Room].(Images/room2.png)
+![Room](Images/room2.png)
 ![Admin](Images/admindashboaard.png)  
 ![Report](Images/report.png)  
 
